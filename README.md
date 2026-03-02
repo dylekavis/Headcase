@@ -1,2 +1,3 @@
-# BadIdeasGameJam_BoxxedUp
-BoxxedUp is a small game in which the player can capture enemies and shoot them out as projectiles with their head, which happens to be in the shape of a box. 
+# HEDKASE
+
+HEDKASE is a fast paced, top-down, action game where you throw your head at enemies to capture and shoot them out as projectiles
