@@ -19,15 +19,17 @@ public class PlayerAnimationController : MonoBehaviour
 
     public void HandleMovement(Vector2 moveVector)
     {
-        //MUST ADD BOOL FOR WALKING AND ROLLING
-        anim.SetFloat("IdleX", moveVector.x);
-        anim.SetFloat("IdleY", moveVector.y);
+        anim.SetBool("isWalking", true);
+
+        anim.SetFloat("AnimMoveX", moveVector.x);
+        anim.SetFloat("AnimMoveY", moveVector.y);
     }
 
     public void CancelMovement()
     {
-        //MUST ADD BOOL AS ABOVE
-        anim.SetFloat("IdleX", anim.GetFloat("IdleX")); //change 2nd argument to "AnimMoveX
-        anim.SetFloat("IdleY", anim.GetFloat("IdleY")); //AnimMoveY when walking implemented
+        anim.SetBool("isWalking", false);
+
+        anim.SetFloat("IdleX", anim.GetFloat("AnimMoveX"));
+        anim.SetFloat("IdleY", anim.GetFloat("AnimMoveY"));
     }
 } 

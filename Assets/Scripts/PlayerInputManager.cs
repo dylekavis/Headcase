@@ -9,11 +9,17 @@ public class PlayerInputManager : MonoBehaviour
 
     public event Action<Vector2> OnMove;
     public event Action OnMoveCancelled;
+    public event Action OnSprint;
+    public event Action OnSprintCancelled;
+    public event Action OnThrow;
+    public event Action OnThrowCancelled;
 
     Vector2 moveInput;
 
     void Awake()
     {
+        UnityEngine.Rendering.DebugManager.instance.enableRuntimeUI = false;
+
         if (Instance != this && Instance != null) Destroy(gameObject);
         else Instance = this;
     }
@@ -30,5 +36,23 @@ public class PlayerInputManager : MonoBehaviour
             moveInput = Vector2.zero;
             OnMoveCancelled?.Invoke();
         }
+    }
+
+    public void HandleDash(InputAction.CallbackContext ctx)
+    {
+        if (ctx.performed)
+        {
+            OnSprint?.Invoke();   
+        }
+        else if (ctx.canceled)
+            OnSprintCancelled?.Invoke();
+    }
+
+    public void HandleThrow(InputAction.CallbackContext ctx)
+    {
+        if (ctx.performed)
+            OnThrow?.Invoke();
+        else if (ctx.canceled)
+            OnThrowCancelled?.Invoke();
     }
 }
