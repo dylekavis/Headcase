@@ -19,21 +19,21 @@ public class EyelerAnimationController : MonoBehaviour
     void OnEnable()
     {
         eyelerMovement.OnMove += HandleMove;
-        eyelerMovement.OnMoveCancelled += CancelMove;
+        eyelerMovement.OnMoveCancelled += HandleIdle;
         eyelerMovement.OnIdle += HandleIdle;
+        eyelerMovement.OnAttackStart += HandleAttack;
 
-        eyelerAttack.OnAttack += HandleAttack;
-        eyelerAttack.OnAttackCancelled += CancelAttack;
+        eyelerAttack.OnAttackCancelled += HandleIdle;
     }
 
     void OnDisable()
     {
         eyelerMovement.OnMove -= HandleMove;
-        eyelerMovement.OnMoveCancelled -= CancelMove;
+        eyelerMovement.OnMoveCancelled -= HandleIdle;
         eyelerMovement.OnIdle -= HandleIdle;
+        eyelerMovement.OnAttackStart -= HandleAttack;
 
-        eyelerAttack.OnAttack -= HandleAttack;
-        eyelerAttack.OnAttackCancelled -= CancelAttack;
+        eyelerAttack.OnAttackCancelled -= HandleIdle;
     }
 
     void HandleMove(Vector2 moveDir)
@@ -46,12 +46,6 @@ public class EyelerAnimationController : MonoBehaviour
 
         anim.SetFloat("AnimMoveX", moveDir.x);
         anim.SetFloat("AnimMoveY", moveDir.y);
-    }
-
-    void CancelMove()
-    {
-        if (state != AnimationState.Attacking)
-            HandleIdle();
     }
 
     void HandleIdle()
@@ -68,10 +62,5 @@ public class EyelerAnimationController : MonoBehaviour
         
         anim.SetBool("isWalking", false);
         anim.SetBool("isAttacking", true);
-    }
-
-    void CancelAttack()
-    {
-        HandleIdle();
     }
 }

@@ -8,7 +8,7 @@ public class EyelerAttack : MonoBehaviour
     public event Action OnAttackCancelled;
 
     [SerializeField] float attackDistance = 1.5f;
-    [SerializeField] float attackCooldownTime = 3f;
+    [SerializeField] float attackCooldownTime = 2f;
 
     [SerializeField] EyelerMovement movement;
     [SerializeField] DetectionRadius detectionRadius;

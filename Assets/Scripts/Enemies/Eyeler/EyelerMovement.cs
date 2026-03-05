@@ -6,6 +6,7 @@ public class EyelerMovement : MonoBehaviour
 {
     public event Action<Vector2> OnMove;
     public event Action OnMoveCancelled;
+    public event Action OnAttackStart;
 
     public event Action OnIdle;
 
@@ -16,6 +17,7 @@ public class EyelerMovement : MonoBehaviour
     [SerializeField, Range(0, 1)] float oscillationHeight;
 
     [Header("References")]
+    [SerializeField] EyelerAttack eyelerAttack;
     [SerializeField] DetectionRadius detectionRadius;
     [SerializeField] Rigidbody2D rb;
 
@@ -27,6 +29,7 @@ public class EyelerMovement : MonoBehaviour
     bool hasTarget;
     bool isIdle;
     bool isMoving;
+    bool isAttacking;
 
     void Start()
     {
@@ -37,12 +40,16 @@ public class EyelerMovement : MonoBehaviour
     {
         detectionRadius.OnPlayerDetected += SetTarget;
         detectionRadius.OnPlayerUndetected += StopUpdatingTarget;
+
+        eyelerAttack.OnAttackCancelled += ReturnToIdle;
     }
 
     void OnDisable()
     {
         detectionRadius.OnPlayerDetected -= SetTarget;
         detectionRadius.OnPlayerUndetected -= StopUpdatingTarget;
+
+        eyelerAttack.OnAttackCancelled -= ReturnToIdle;
     }
 
     void Update()
@@ -83,6 +90,8 @@ public class EyelerMovement : MonoBehaviour
     {
         isIdle = false;
 
+        if (isAttacking) return;
+
         Vector2 moveDir = (lastKnownPlayerPos - (Vector2)transform.position).normalized;
 
         float distance = Vector2.Distance(transform.position, lastKnownPlayerPos);
@@ -104,16 +113,17 @@ public class EyelerMovement : MonoBehaviour
         else
         {
             isMoving = false;
-            OnMoveCancelled?.Invoke();
+            isAttacking = true;
+            OnAttackStart?.Invoke();
         }
     }
 
     void ReturnToIdle()
     {
         isIdle = true;
+        isAttacking = false;
         idleTimer = 0;
         idleStartY = transform.position.y;
-        OnMoveCancelled?.Invoke();
     }
 
     public bool IsMoving => isMoving;

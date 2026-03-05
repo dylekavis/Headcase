@@ -2106,6 +2106,7 @@ MonoBehaviour:
   attackDistance: 1.5
   oscillationSpeed: 2.5
   oscillationHeight: 0.274
+  eyelerAttack: {fileID: 1978549179}
   detectionRadius: {fileID: 1299186381}
   rb: {fileID: 1978549182}
 --- !u!58 &1978549181
