@@ -1430,7 +1430,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: -0.08438325}
-  m_Radius: 1.0625558
+  m_Radius: 1.5
 --- !u!1 &1252533964
 GameObject:
   m_ObjectHideFlags: 0
@@ -2047,9 +2047,9 @@ GameObject:
   - component: {fileID: 1978549183}
   - component: {fileID: 1978549182}
   - component: {fileID: 1978549181}
-  - component: {fileID: 1978549180}
-  - component: {fileID: 1978549179}
-  - component: {fileID: 1978549178}
+  - component: {fileID: 1978549186}
+  - component: {fileID: 1978549185}
+  - component: {fileID: 1978549184}
   m_Layer: 0
   m_Name: Eyeler
   m_TagString: Untagged
@@ -2057,58 +2057,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1978549178
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1978549177}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3019b2b43ac06e74686f969b6b2e7b67, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  anim: {fileID: 239617846}
-  state: 0
-  eyelerMovement: {fileID: 1978549180}
-  eyelerAttack: {fileID: 1978549179}
---- !u!114 &1978549179
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1978549177}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba69a56356b278c41b7bcb917779dfa7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackDistance: 3
-  attackCooldownTime: 2
-  movement: {fileID: 1978549180}
-  detectionRadius: {fileID: 1299186381}
-  attackCollider: {fileID: 1156651956}
---- !u!114 &1978549180
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1978549177}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df6ad7b5ae7c1bf468add7c3d21a9dd2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 10
-  attackDistance: 1.5
-  oscillationSpeed: 2.5
-  oscillationHeight: 0.274
-  eyelerAttack: {fileID: 1978549179}
-  detectionRadius: {fileID: 1299186381}
-  rb: {fileID: 1978549182}
 --- !u!58 &1978549181
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -2143,8 +2091,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: -0.059473038}
-  m_Radius: 0.9075856
+  m_Offset: {x: 0.00000029802322, y: -0.0782249}
+  m_Radius: 0.7575705
 --- !u!50 &1978549182
 Rigidbody2D:
   serializedVersion: 5
@@ -2190,6 +2138,57 @@ Transform:
   - {fileID: 1156651955}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1978549184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1978549177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df6ad7b5ae7c1bf468add7c3d21a9dd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eyelerAI: {fileID: 1978549186}
+  moveSpeed: 5
+  minAttackDistance: 1.5
+  yOscillationSpeed: 2
+  yOscillationHeight: 0.41
+  preAttackTime: 0.4
+  xOscillationSpeed: 1.5
+  xOscillationWidth: 0.507
+--- !u!114 &1978549185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1978549177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3019b2b43ac06e74686f969b6b2e7b67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 239617846}
+  state: 0
+  eyelerAI: {fileID: 1978549186}
+--- !u!114 &1978549186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1978549177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03dec5ed3812eda4887874324efa2fb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  state: 0
+  detectionRadius: {fileID: 1299186381}
+  minDistanceToAttack: 2
+  attackCooldownTime: 1.5
 --- !u!1 &2112467693
 GameObject:
   m_ObjectHideFlags: 0

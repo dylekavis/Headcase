@@ -7,45 +7,55 @@ public enum AnimationState
     Attacking
 }
 
-[RequireComponent(typeof(EyelerMovement), typeof(EyelerAttack))]
+[RequireComponent(typeof(EyelerAIController))]
 public class EyelerAnimationController : MonoBehaviour
 {
     [SerializeField] Animator anim;
     [SerializeField] AnimationState state;
 
-    [SerializeField] EyelerMovement eyelerMovement;
-    [SerializeField] EyelerAttack eyelerAttack;
+    [SerializeField] EyelerAIController eyelerAI;
+
+    void Start()
+    {
+        eyelerAI = GetComponent<EyelerAIController>();    
+    }
 
     void OnEnable()
     {
-        eyelerMovement.OnMove += HandleMove;
-        eyelerMovement.OnMoveCancelled += HandleIdle;
-        eyelerMovement.OnIdle += HandleIdle;
-        eyelerMovement.OnAttackStart += HandleAttack;
+        eyelerAI.OnChaseStart += HandleMove;
+        eyelerAI.OnChaseEnd += CancelMove;
 
-        eyelerAttack.OnAttackCancelled += HandleIdle;
+        eyelerAI.OnAttackStart += HandleAttack;
+        eyelerAI.OnAttackEnd += CancelAttack;    
     }
 
     void OnDisable()
     {
-        eyelerMovement.OnMove -= HandleMove;
-        eyelerMovement.OnMoveCancelled -= HandleIdle;
-        eyelerMovement.OnIdle -= HandleIdle;
-        eyelerMovement.OnAttackStart -= HandleAttack;
+        eyelerAI.OnChaseStart -= HandleMove;
+        eyelerAI.OnChaseEnd -= CancelMove;
 
-        eyelerAttack.OnAttackCancelled -= HandleIdle;
+        eyelerAI.OnAttackStart -= HandleAttack;
+        eyelerAI.OnAttackEnd -= CancelAttack;  
     }
 
     void HandleMove(Vector2 moveDir)
     {
         if (state == AnimationState.Attacking) return;
 
+        Vector2 normalized = moveDir.normalized;
+
         state = AnimationState.Moving;
 
         anim.SetBool("isWalking", true);
 
-        anim.SetFloat("AnimMoveX", moveDir.x);
-        anim.SetFloat("AnimMoveY", moveDir.y);
+        anim.SetFloat("AnimMoveX", normalized.x);
+        anim.SetFloat("AnimMoveY", normalized.y);
+    }
+
+    void CancelMove()
+    {
+        if (state != AnimationState.Attacking)
+            HandleIdle();
     }
 
     void HandleIdle()
@@ -62,5 +72,10 @@ public class EyelerAnimationController : MonoBehaviour
         
         anim.SetBool("isWalking", false);
         anim.SetBool("isAttacking", true);
+    }
+
+    void CancelAttack()
+    {
+        HandleIdle();
     }
 }
