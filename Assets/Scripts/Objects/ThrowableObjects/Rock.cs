@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class RockWeapon : MonoBehaviour, IThrowable
+public class Rock : MonoBehaviour, IThrowable
 {
     public int damageAmount;
     IThrowable throwable;
