@@ -41,7 +41,8 @@ public class Switch : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player")) return;
         if (collision.gameObject.CompareTag("Enemy")) return;
-
+        
+        Debug.Log($"{collision.gameObject.name} has collided with {name}");
         if (state == SwitchState.Base)
         {
             SetState(SwitchState.Sentry);

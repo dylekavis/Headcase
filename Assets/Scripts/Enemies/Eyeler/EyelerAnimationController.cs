@@ -36,7 +36,7 @@ public class EyelerAnimationController : MonoBehaviour
         eyelerAI.OnChaseEnd -= CancelMove;
 
         eyelerAI.OnAttackAttempt -= AttemptAttack;
-        eyelerAI.OnAttackLand += HandleAttack;
+        eyelerAI.OnAttackLand -= HandleAttack;
         eyelerAI.OnAttackEnd -= CancelAttack;  
     }
 
@@ -44,14 +44,12 @@ public class EyelerAnimationController : MonoBehaviour
     {
         if (state == AnimationState.Attacking) return;
 
-        Vector2 normalized = moveDir.normalized;
-
         state = AnimationState.Moving;
 
         anim.SetBool("isWalking", true);
 
-        anim.SetFloat("AnimMoveX", normalized.x);
-        anim.SetFloat("AnimMoveY", normalized.y);
+        anim.SetFloat("AnimMoveX", moveDir.x);
+        anim.SetFloat("AnimMoveY", moveDir.y);
     }
 
     void CancelMove()
