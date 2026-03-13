@@ -11,127 +11,110 @@ public enum EyelerState
 
 public class EyelerAIController : MonoBehaviour
 {
-    public event Action<Vector2> OnChaseStart;
+    public event Action<Transform> OnChaseStart;
     public event Action OnChaseEnd;
-    public event Action OnAttackAttempt;
-    public event Action OnAttackLand;
+    
+    public event Action OnAttackAttemptStart;
+    public event Action OnAttackAttemptEnd;
+    public event Action OnAttackStart;
     public event Action OnAttackEnd;
 
-    [Header("Eyeler State")]
-    [SerializeField] EyelerState state;
 
-    [Header("Detection Parameters")]
-    [SerializeField] DetectionRadius detectionRadius;
-    [SerializeField] float detectionResetTime = 2f;
-
-    [Header("Attacking Parameters")]
-    [SerializeField] float minDistanceToAttemptAttack = 1.25f;
+    [Header("Attack Variables")]
+    [SerializeField] float minDistanceToAttack = 1.5f;
     [SerializeField] float attackAttemptTime = 0.12f;
-    [SerializeField] float attackAnimationTime = 0.3f;
-    [SerializeField] float attackCooldownTime = 2f;
+    [SerializeField] float attackAnimatonTime = 0.3f;
+    [SerializeField] float attackCooldownTime = 2.5f;
 
+    [Header("References")]
+    [SerializeField] EyelerState state;
+    [SerializeField] DetectionRadius detectionRadius;
+
+    //Unsearialized references
+    GameObject targetToFollow;
     bool canAttack = true;
 
-    Transform target;
-    Coroutine attackAttempt;
-
+    public float GetAttackDistance() => minDistanceToAttack;
+    
     void OnEnable()
     {
-        detectionRadius.OnPlayerDetected += SetTargetToChase;
-        detectionRadius.OnPlayerUndetected += CancelChase;
+        detectionRadius.OnPlayerDetected += HandleDetectTarget;
+        detectionRadius.OnPlayerUndetected += CancelDetectTarget;
     }
 
     void OnDisable()
     {
-        detectionRadius.OnPlayerDetected -= SetTargetToChase;
-        detectionRadius.OnPlayerUndetected -= CancelChase;
+        detectionRadius.OnPlayerDetected -= HandleDetectTarget;
+        detectionRadius.OnPlayerUndetected -= CancelDetectTarget;
     }
 
-    void Update()
+#region Target Detection
+    void HandleDetectTarget(GameObject target)
     {
-        if (state != EyelerState.Chasing && state != EyelerState.Attacking)
-            return;
-
-        if (target == null) return;
-        
-        float distance = Vector2.Distance(transform.position, target.position);
-
-        if (distance <= minDistanceToAttemptAttack && canAttack && attackAttempt == null)
-        {
-            state = EyelerState.Attacking;
-
-            attackAttempt = StartCoroutine(AttackRoutine());
-
-            OnAttackAttempt?.Invoke();
-        }
-    }
-
-    void SetTargetToChase(GameObject player)
-    {
-        target = player.transform;
+        targetToFollow = target;
 
         state = EyelerState.Chasing;
 
-        Vector2 dir = (target.position - transform.position).normalized;
+        OnChaseStart?.Invoke(targetToFollow.transform);
 
-        OnChaseStart?.Invoke(dir);
+        float distance = Vector2.Distance(transform.position, targetToFollow.transform.position);
+
+        if (distance <= minDistanceToAttack)
+        {
+            state = EyelerState.Attacking;
+            OnAttackAttemptStart?.Invoke();
+
+            StartCoroutine(AttackRoutine());
+        }
     }
 
-    void CancelChase()
+    void CancelDetectTarget()
     {
-        target = null;
-
         state = EyelerState.Idle;
-    
-        if (attackAttempt != null)
-        {
-            StopCoroutine(attackAttempt);
-            ResetAttack();
-        }
+
+        targetToFollow = null;
 
         OnChaseEnd?.Invoke();
     }
 
+#endregion
+
+#region Attacking
+
     IEnumerator AttackRoutine()
     {
+        if (targetToFollow == null) yield break;
+
+        float distance = Vector2.Distance(transform.position, targetToFollow.transform.position);
+
+        if (distance > minDistanceToAttack)
+        {
+            OnAttackAttemptEnd?.Invoke();
+            yield break;
+        }
+
         yield return new WaitForSeconds(attackAttemptTime);
 
-        if (target == null)
-        {
-            ResetAttack();
-            yield break;
-        }
-
-        float distance = Vector2.Distance(transform.position, target.position);
-
-        if (distance > minDistanceToAttemptAttack)
-        {
-            ResetAttack();
-            yield break;
-        }
-
-        OnAttackLand?.Invoke();
-
-        yield return new WaitForSeconds(attackAnimationTime);
+        OnAttackStart?.Invoke();
 
         canAttack = false;
+
+        yield return new WaitForSeconds(attackAnimatonTime);
+
+        OnAttackEnd?.Invoke();
 
         yield return new WaitForSeconds(attackCooldownTime);
 
         ResetAttack();
     }
-
+    
     void ResetAttack()
     {
-        attackAttempt = null;
         canAttack = true;
+        StopCoroutine(AttackRoutine());
 
-        state = target != null ? EyelerState.Chasing : EyelerState.Idle;
-
-        OnAttackEnd?.Invoke();
+        state = EyelerState.Idle;
     }
 
-    public EyelerState GetEyelerState => state;
-    public float MinAttackDistance => minDistanceToAttemptAttack;
-    public Transform Target => target;
+#endregion
 }

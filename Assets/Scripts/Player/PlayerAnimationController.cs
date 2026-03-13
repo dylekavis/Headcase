@@ -8,7 +8,14 @@ public class PlayerAnimationController : MonoBehaviour
 
     bool isWalking = false;
 
-    bool hasHead => GetComponent<PlayerThrowing>().HasHead();
+    PlayerThrowing throwing;
+
+    bool hasHead => throwing.HasHead();
+
+    void Awake()
+    {
+        throwing = GetComponent<PlayerThrowing>();
+    }
 
     void OnEnable()
     {
@@ -16,6 +23,9 @@ public class PlayerAnimationController : MonoBehaviour
         PlayerInputManager.Instance.OnMoveCancelled += CancelMovement;
         PlayerInputManager.Instance.OnPlayerLook += HandleLook;
         PlayerInputManager.Instance.OnLookCancelled += CancelLook;
+
+        throwing.OnHeadLoss += HandleHeadLoss;
+        throwing.OnHeadPickup += HandleHeadPickup;
     }
 
     void OnDisable()
@@ -23,18 +33,30 @@ public class PlayerAnimationController : MonoBehaviour
         PlayerInputManager.Instance.OnMove -= HandleMovement;
         PlayerInputManager.Instance.OnMoveCancelled -= CancelMovement;
         PlayerInputManager.Instance.OnPlayerLook -= HandleLook;
+        PlayerInputManager.Instance.OnLookCancelled -= CancelLook;
+
+        throwing.OnHeadLoss -= HandleHeadLoss;
+        throwing.OnHeadPickup -= HandleHeadPickup;
+    }
+
+    void HandleHeadLoss()
+    {
+        fullBodyAnim.gameObject.SetActive(false);
+        headlessBodyAnim.gameObject.SetActive(true);
+    }
+
+    void HandleHeadPickup()
+    {
+        fullBodyAnim.gameObject.SetActive(true);
+        headlessBodyAnim.gameObject.SetActive(false);
     }
 
     public void HandleMovement(Vector2 moveVector)
     {
         isWalking = true;
 
-
         if (hasHead)
         {
-            fullBodyAnim.gameObject.SetActive(true);
-            headlessBodyAnim.gameObject.SetActive(false);
-
             fullBodyAnim.SetBool("isWalking", true);
 
             fullBodyAnim.SetFloat("AnimMoveX", moveVector.x);
@@ -42,9 +64,6 @@ public class PlayerAnimationController : MonoBehaviour
         }
         else
         {
-            fullBodyAnim.gameObject.SetActive(false);
-            headlessBodyAnim.gameObject.SetActive(true);
-
             headlessBodyAnim.SetBool("isWalking", true);
 
             headlessBodyAnim.SetFloat("AnimMoveX", moveVector.x);
@@ -58,9 +77,6 @@ public class PlayerAnimationController : MonoBehaviour
 
         if (hasHead)
         {
-            fullBodyAnim.gameObject.SetActive(true);
-            headlessBodyAnim.gameObject.SetActive(false);
-
             fullBodyAnim.SetBool("isWalking", false);
 
             fullBodyAnim.SetFloat("LastLookX", fullBodyAnim.GetFloat("AnimMoveX"));
@@ -68,9 +84,6 @@ public class PlayerAnimationController : MonoBehaviour
         }
         else
         {
-            fullBodyAnim.gameObject.SetActive(false);
-            headlessBodyAnim.gameObject.SetActive(true);
-
             headlessBodyAnim.SetBool("isWalking", false);
 
             headlessBodyAnim.SetFloat("LastLookX", headlessBodyAnim.GetFloat("AnimMoveX"));
@@ -82,17 +95,11 @@ public class PlayerAnimationController : MonoBehaviour
     {
         if (hasHead)
         {
-            fullBodyAnim.gameObject.SetActive(true);
-            headlessBodyAnim.gameObject.SetActive(false);
-
             fullBodyAnim.SetFloat("IdleX", lookDir.x);
             fullBodyAnim.SetFloat("IdleY", lookDir.y);
         }
         else
         {
-            fullBodyAnim.gameObject.SetActive(false);
-            headlessBodyAnim.gameObject.SetActive(true);
-
             headlessBodyAnim.SetFloat("IdleX", lookDir.x);
             headlessBodyAnim.SetFloat("IdleY", lookDir.y);
         }
@@ -102,17 +109,11 @@ public class PlayerAnimationController : MonoBehaviour
     {
         if (hasHead)
         {
-            fullBodyAnim.gameObject.SetActive(true);
-            headlessBodyAnim.gameObject.SetActive(false);
-
             fullBodyAnim.SetFloat("LastLookX", fullBodyAnim.GetFloat("IdleX"));
             fullBodyAnim.SetFloat("LastLookY", fullBodyAnim.GetFloat("IdleY"));
         }
         else
         {
-            fullBodyAnim.gameObject.SetActive(false);
-            headlessBodyAnim.gameObject.SetActive(true);
-
             headlessBodyAnim.SetFloat("LastLookX", headlessBodyAnim.GetFloat("IdleX"));
             headlessBodyAnim.SetFloat("LastLookY", headlessBodyAnim.GetFloat("IdleY"));
         }

@@ -1099,6 +1099,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   headObject: {fileID: 707049633}
   otherObject: {fileID: 0}
+  collisionOffsetTime: 0.2
   maxChargeTime: 3
   throwForce: 300
   hasHead: 1
@@ -8570,17 +8571,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4920087359952240233, guid: 7c3cfc9e1a17af7428f7535fe7da193b, type: 3}
+      propertyPath: moveSpeed
+      value: 7.5
+      objectReference: {fileID: 0}
     - target: {fileID: 5506824874773089644, guid: 7c3cfc9e1a17af7428f7535fe7da193b, type: 3}
       propertyPath: m_SortingOrder
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6429802866371561985, guid: 7c3cfc9e1a17af7428f7535fe7da193b, type: 3}
       propertyPath: attackAttemptTime
-      value: 0.12
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6429802866371561985, guid: 7c3cfc9e1a17af7428f7535fe7da193b, type: 3}
       propertyPath: attackCooldownTime
       value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6429802866371561985, guid: 7c3cfc9e1a17af7428f7535fe7da193b, type: 3}
+      propertyPath: attackAnimationTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6429802866371561985, guid: 7c3cfc9e1a17af7428f7535fe7da193b, type: 3}
+      propertyPath: minDistanceToAttack
+      value: 1.25
       objectReference: {fileID: 0}
     - target: {fileID: 6622154087633998966, guid: 7c3cfc9e1a17af7428f7535fe7da193b, type: 3}
       propertyPath: m_TagString
@@ -8590,7 +8603,8 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Enemy
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6464497216180865118, guid: 7c3cfc9e1a17af7428f7535fe7da193b, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

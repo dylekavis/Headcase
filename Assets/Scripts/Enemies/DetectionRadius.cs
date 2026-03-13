@@ -6,13 +6,13 @@ public class DetectionRadius : MonoBehaviour
     public event Action<GameObject> OnPlayerDetected;
     public event Action OnPlayerUndetected;
 
-    GameObject player;
+    GameObject target;
 
-    void OnTriggerEnter2D(Collider2D collision)
+    void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            player = collision.gameObject;
+            target = collision.gameObject;
             Debug.Log("Player detected");
             OnPlayerDetected?.Invoke(collision.gameObject);
         }
@@ -22,7 +22,7 @@ public class DetectionRadius : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            player = null;
+            target = null;
             Debug.Log("Player undetected");
             OnPlayerUndetected?.Invoke();
         }

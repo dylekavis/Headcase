@@ -1,12 +1,5 @@
 using UnityEngine;
 
-public enum AnimationState
-{
-    Idle,
-    Moving,
-    Attacking
-}
-
 [RequireComponent(typeof(EyelerAIController))]
 public class EyelerAnimationController : MonoBehaviour
 {
@@ -25,8 +18,9 @@ public class EyelerAnimationController : MonoBehaviour
         eyelerAI.OnChaseStart += HandleMove;
         eyelerAI.OnChaseEnd += CancelMove;
 
-        eyelerAI.OnAttackAttempt += AttemptAttack;
-        eyelerAI.OnAttackLand += HandleAttack;
+        eyelerAI.OnAttackAttemptStart += AttemptAttack;
+        eyelerAI.OnAttackAttemptEnd += CancelAttackAttempt;
+        eyelerAI.OnAttackStart += HandleAttack;
         eyelerAI.OnAttackEnd += CancelAttack;    
     }
 
@@ -35,50 +29,46 @@ public class EyelerAnimationController : MonoBehaviour
         eyelerAI.OnChaseStart -= HandleMove;
         eyelerAI.OnChaseEnd -= CancelMove;
 
-        eyelerAI.OnAttackAttempt -= AttemptAttack;
-        eyelerAI.OnAttackLand -= HandleAttack;
+        eyelerAI.OnAttackAttemptStart -= AttemptAttack;
+        eyelerAI.OnAttackAttemptEnd -= CancelAttackAttempt;
+        eyelerAI.OnAttackStart -= HandleAttack;
         eyelerAI.OnAttackEnd -= CancelAttack;  
     }
 
-    void HandleMove(Vector2 moveDir)
+    void HandleMove(Transform target)
     {
-        if (state == AnimationState.Attacking) return;
+        Vector2 direction = (target.transform.position - transform.position).normalized;
 
-        state = AnimationState.Moving;
+        anim.SetInteger("SwitchState", 1);
 
-        anim.SetBool("isWalking", true);
-
-        anim.SetFloat("AnimMoveX", moveDir.x);
-        anim.SetFloat("AnimMoveY", moveDir.y);
+        anim.SetFloat("AnimMoveX", direction.x);
+        anim.SetFloat("AnimMoveY", direction.y);
     }
 
     void CancelMove()
     {
-        if (state != AnimationState.Attacking)
-            HandleIdle();
+        HandleIdle();
     }
 
     void HandleIdle()
     {
-        state = AnimationState.Idle;
-
-        anim.SetBool("isWalking", false);
-        anim.SetBool("canAttack", false);
-        anim.SetBool("canAttemptAttack", false);
+        anim.SetInteger("SwitchState", 0);
+        anim.SetBool("isAttacking", false);
     }
 
     void AttemptAttack()
     {
-        state = AnimationState.Attacking;
-        
-        anim.SetBool("isWalking", false);
-        anim.SetBool("canAttemptAttack", true);
+        anim.SetInteger("SwitchState", 2);
+    }
+
+    void CancelAttackAttempt()
+    {
+        HandleIdle();
     }
 
     void HandleAttack()
     {
-        anim.SetBool("canAttemptAttack", false);
-        anim.SetBool("canAttack", true);
+        anim.SetBool("isAttacking", true);
     }
 
     void CancelAttack()

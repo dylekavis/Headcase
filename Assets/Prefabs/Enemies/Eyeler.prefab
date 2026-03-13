@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 145994413502447718}
   - component: {fileID: 4920087359952240233}
   - component: {fileID: 7930645374459654180}
-  - component: {fileID: 6464497216180865118}
   m_Layer: 0
   m_Name: Eyeler
   m_TagString: Enemy
@@ -116,12 +115,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03dec5ed3812eda4887874324efa2fb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minDistanceToAttack: 1.5
+  attackAttemptTime: 0.12
+  attackAnimatonTime: 0.3
+  attackCooldownTime: 0.3
   state: 0
   detectionRadius: {fileID: 9044571688345140340}
-  detectionResetTime: 2
-  minDistanceToAttemptAttack: 1.25
-  attackAttemptTime: 0.12
-  attackCooldownTime: 0.3
 --- !u!114 &145994413502447718
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -135,7 +134,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 425589532400039358}
-  state: 0
   eyelerAI: {fileID: 6429802866371561985}
 --- !u!114 &4920087359952240233
 MonoBehaviour:
@@ -149,10 +147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df6ad7b5ae7c1bf468add7c3d21a9dd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eyelerAI: {fileID: 6429802866371561985}
   moveSpeed: 5
-  yOscillationSpeed: 2
-  yOscillationHeight: 0.41
 --- !u!114 &7930645374459654180
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -167,20 +162,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealthAmount: 50
   currentHealth: 0
---- !u!114 &6464497216180865118
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1546597590274771388}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 22c8432809bb98c41a277a0b126993d2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hitbox: {fileID: 527222695396513351}
-  eyelerAI: {fileID: 6429802866371561985}
 --- !u!1 &2995730225274896322
 GameObject:
   m_ObjectHideFlags: 0

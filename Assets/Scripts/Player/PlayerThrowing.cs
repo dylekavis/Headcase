@@ -6,14 +6,19 @@ using UnityEngine;
 public class PlayerThrowing : MonoBehaviour
 {
     public event Action OnHeadLoss;
+    public event Action OnHeadPickup;
 
+    [Header("Objects To Throw")]
     [SerializeField] GameObject headObject;
     [SerializeField] GameObject otherObject;
+
+    [Header("Throw Parameters")]
+    [SerializeField] float collisionOffsetTime = 0.2f;
     [SerializeField] float maxChargeTime = 3f;
     [SerializeField] float throwForce = 10f;
-    
     float currentCharge;
 
+    [Header("Do you have your head?")]
     [SerializeField] bool hasHead = true;
 
     Coroutine throwCharge;
@@ -79,6 +84,7 @@ public class PlayerThrowing : MonoBehaviour
         {
             objectToThrow = headObject;
             hasHead = false;
+            OnHeadLoss?.Invoke();
         }
         else if (otherObject != null && hasHead)
         {
@@ -92,7 +98,7 @@ public class PlayerThrowing : MonoBehaviour
 
         float chargePercent = currentCharge / maxChargeTime;
         float finalForce = chargePercent * throwForce;
-        Vector2 spawnOffset = aimDirection.normalized * 0.8f;
+        Vector2 spawnOffset = aimDirection.normalized * 0.5f;
         Vector2 spawnPos = (Vector2)transform.position + spawnOffset;
 
         objectToThrow.transform.parent = null;
@@ -100,6 +106,8 @@ public class PlayerThrowing : MonoBehaviour
         Rigidbody2D objRb = objectToThrow.GetComponent<Rigidbody2D>();
         objectToThrow.transform.position = spawnPos;
         
+        StartCoroutine(ObjectCollisionOffset(objectToThrow));
+
         objectToThrow.SetActive(true);
         throwable.SetState(IThrowable.State.Thrown);
 
@@ -132,6 +140,8 @@ public class PlayerThrowing : MonoBehaviour
             headObject.transform.position = this.transform.position;
             hasHead = true;
 
+            OnHeadPickup?.Invoke();
+
             if (headObject != null)
             {
                 HeadCollection hc = headObject.GetComponent<HeadCollection>();
@@ -140,6 +150,19 @@ public class PlayerThrowing : MonoBehaviour
                     hc.OnHeadCollect += CollectObject;
             }
         }
+    }
+
+    IEnumerator ObjectCollisionOffset(GameObject obj)
+    {
+        Collider2D objCol = obj.GetComponent<Collider2D>();
+
+        objCol.enabled = false;
+
+        yield return new WaitForSeconds(collisionOffsetTime);
+
+        objCol.enabled = true;
+
+        yield break;
     }
 
     public bool HasHead() => hasHead;
