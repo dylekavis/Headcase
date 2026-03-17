@@ -9,6 +9,8 @@ TagManager:
   - Enemy
   - Walls
   - Pit
+  - PickUpEnemy
+  - NonPickUpEnemy
   layers:
   - Default
   - TransparentFX

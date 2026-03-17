@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public enum SwitchState
 {
@@ -12,9 +13,15 @@ public class Switch : MonoBehaviour
 {
     [SerializeField] float animTime = 0.2f;
 
+    [SerializeField] Light2D lighting;
     [SerializeField] SwitchState state;
     [SerializeField] Animator anim;
 
+    void Start()
+    {
+        lighting.enabled = false;
+    }
+    
     public void SetState(SwitchState newState)
     {
         state = newState;
@@ -51,7 +58,10 @@ public class Switch : MonoBehaviour
     }
 
     IEnumerator SentryBuffer()
-    {
+    {   
+        lighting.enabled = true;
+        lighting.color = Color.orange;
+
         yield return new WaitForSeconds(animTime);
 
         anim.SetBool("isSentry", true);
@@ -60,7 +70,10 @@ public class Switch : MonoBehaviour
     }
 
     IEnumerator ActiveBuffer()
-    {
+    {   
+        lighting.enabled = true;
+        lighting.color = Color.limeGreen;
+
         yield return new WaitForSeconds(animTime);
 
         anim.SetBool("isActive", true);
@@ -70,6 +83,8 @@ public class Switch : MonoBehaviour
 
     IEnumerator BaseBuffer()
     {
+        lighting.enabled = false;
+
         yield return new WaitForSeconds(animTime);
 
         anim.SetBool("isSentry", false);

@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 7930645374459654180}
   m_Layer: 0
   m_Name: Eyeler
-  m_TagString: Enemy
+  m_TagString: NonPickUpEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -148,6 +148,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
+  amplitude: 0
+  frequency: 0
 --- !u!114 &7930645374459654180
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e12533652dbf07840ad4e2828ded0723
+guid: cfbf20c64609d164ea0401a60d069ee1
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -127,9 +127,9 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: Rock1
+  - name: Logo
     originalName: 
-    pivot: {x: 1, y: -2}
+    pivot: {x: 0.5, y: -0.2967033}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
@@ -137,9 +137,9 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 16
-      height: 16
-    spriteID: 7a7bd4ab6890f894985d54eace28087b
+      width: 96
+      height: 91
+    spriteID: a5bb500f2cec91b48b4ef9086f657b89
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -153,25 +153,25 @@ ScriptedImporter:
   asepriteLayers:
   - layerIndex: 0
     uuid:
-      value0: 1151510346
+      value0: 2933275975
       value1: 0
       value2: 0
       value3: 0
     guid: 0
-    name: Rock1
+    name: Logo
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: Rock1
+    - name: Logo
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
-        x: 16
-        y: 32
-        width: 16
-        height: 16
-      spriteId: 7a7bd4ab6890f894985d54eace28087b
+        x: 80
+        y: 27
+        width: 96
+        height: 91
+      spriteId: a5bb500f2cec91b48b4ef9086f657b89
     linkedCells: []
     tileCells: []
     tileSetIndex: 0
@@ -181,5 +181,5 @@ ScriptedImporter:
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 64, y: 64}
-  previousTextureSize: {x: 32, y: 32}
+  canvasSize: {x: 256, y: 128}
+  previousTextureSize: {x: 128, y: 128}

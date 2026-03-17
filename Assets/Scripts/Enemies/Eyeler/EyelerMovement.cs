@@ -1,9 +1,12 @@
+using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 
 [RequireComponent(typeof(EyelerAIController))]
 public class EyelerMovement : MonoBehaviour
 {
     [SerializeField] float moveSpeed = 15f;
+    [SerializeField] float amplitude;
+    [SerializeField] float frequency;
 
     Transform targetToChase;
 
