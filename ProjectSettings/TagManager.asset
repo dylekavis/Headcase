@@ -6,11 +6,11 @@ TagManager:
   tags:
   - Head
   - Throwable
-  - Enemy
   - Walls
   - Pit
   - PickUpEnemy
   - NonPickUpEnemy
+  - DetectionRadius
   layers:
   - Default
   - TransparentFX

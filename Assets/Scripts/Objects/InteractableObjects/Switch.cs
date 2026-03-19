@@ -47,7 +47,9 @@ public class Switch : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player")) return;
-        if (collision.gameObject.CompareTag("Enemy")) return;
+        if (collision.gameObject.CompareTag("NonPickUpEnemy")) return;
+        if (collision.gameObject.CompareTag("PickUpEnemy")) return;
+        if (collision.gameObject.CompareTag("DetectionRadius")) return;
         
         Debug.Log($"{collision.gameObject.name} has collided with {name}");
         if (state == SwitchState.Base)
