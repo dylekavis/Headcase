@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using UnityEngine.UI;
 using UnityEngine;
 
 [RequireComponent(typeof(PlayerAnimationController))]
@@ -20,6 +21,9 @@ public class PlayerThrowing : MonoBehaviour
 
     [Header("Do you have your head?")]
     [SerializeField] bool hasHead = true;
+
+    [Header("Powerbar")]
+    [SerializeField] Image powerbar;
 
     Coroutine throwCharge;
 
@@ -49,6 +53,7 @@ public class PlayerThrowing : MonoBehaviour
     void StartCharge()
     {
         if (throwCharge != null) return;
+        if (!hasHead) return;
 
         throwCharge = StartCoroutine(ChargeThrow());
     }
@@ -57,6 +62,8 @@ public class PlayerThrowing : MonoBehaviour
     {
         if (throwCharge != null)
         {
+            powerbar.enabled = false;
+            powerbar.fillAmount = 0;
             StopCoroutine(throwCharge);
             ThrowObject(aimDirection);
             throwCharge = null;
@@ -66,14 +73,19 @@ public class PlayerThrowing : MonoBehaviour
     IEnumerator ChargeThrow()
     {
         currentCharge = 0f;
+        powerbar.fillAmount = 0;
+        powerbar.enabled = true;
 
         while (currentCharge < maxChargeTime)
         {
             currentCharge += Time.deltaTime;
+            powerbar.fillAmount += 0.01f;
             yield return null;
         }
 
         currentCharge = maxChargeTime;
+        powerbar.fillAmount = maxChargeTime;
+        powerbar.enabled = false;
     }
 
     void ThrowObject(Vector2 aimDirection)

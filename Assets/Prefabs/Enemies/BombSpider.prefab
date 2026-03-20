@@ -5041,6 +5041,7 @@ GameObject:
   - component: {fileID: 4805391254369993972}
   - component: {fileID: 3786270899395817451}
   - component: {fileID: 5655989556711061527}
+  - component: {fileID: 7969422369685508019}
   m_Layer: 0
   m_Name: BombSpider
   m_TagString: PickUpEnemy
@@ -5065,6 +5066,7 @@ Transform:
   - {fileID: 284260002678845736}
   - {fileID: 512350701400788427}
   - {fileID: 3800170505576542390}
+  - {fileID: 8657424754616657597}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &3435950003250138814
@@ -5080,7 +5082,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 100
-  m_LinearDamping: 0
+  m_LinearDamping: 35
   m_AngularDamping: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -5090,7 +5092,7 @@ Rigidbody2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
@@ -5156,10 +5158,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26241993ea300f344b0692475926212d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minDistanceToAttack: 1.5
+  hitbox: {fileID: 7560469270035641437}
+  minDistanceToAttack: 1.2
   attackAttemptTime: 0.7
-  attackAnimatonTime: 1
-  attackCooldownTime: 2.5
+  attackAnimatonTime: 0.75
+  attackCooldownTime: 2.55
   state: 0
   detectionRadius: {fileID: 5380645480699935941}
   spriteRenderer: {fileID: 1706532213928230222}
@@ -5176,7 +5179,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14ae81fbc4b39a94d904cfdd9ce202e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 10
+  moveSpeed: 5
+--- !u!114 &7969422369685508019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4201222688946410394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5eed58156d517474ca7bd6ad0491b9de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealthAmount: 10
+  currentHealth: 0
 --- !u!1 &5481117554335129787
 GameObject:
   m_ObjectHideFlags: 0
@@ -5258,3 +5275,85 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 029d33c8ab18a0b4981b5974c96cf708, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &6958745753964576290
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8657424754616657597}
+  - component: {fileID: 7560469270035641437}
+  - component: {fileID: 5570311539047966090}
+  m_Layer: 0
+  m_Name: hitbox
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8657424754616657597
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6958745753964576290}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7854573260935709458}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &7560469270035641437
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6958745753964576290}
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 2
+--- !u!114 &5570311539047966090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6958745753964576290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66a6048efb7b1114fb8407d8a87258e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageAmount: 30

@@ -19,6 +19,7 @@ public class BombSpiderController : MonoBehaviour
 
 
     [Header("Attack Variables")]
+    [SerializeField] Collider2D hitbox;
     [SerializeField] float minDistanceToAttack = 1.5f;
     [SerializeField] float attackAttemptTime = 0.12f;
     [SerializeField] float attackAnimatonTime = 0.3f;
@@ -106,7 +107,11 @@ public class BombSpiderController : MonoBehaviour
         ps.gameObject.SetActive(true);
         ps.Play();
         
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.2f);
+
+        hitbox.enabled = true;
+
+        yield return new WaitForSeconds(0.5f);
 
         gameObject.SetActive(false);
     }

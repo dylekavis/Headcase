@@ -8,6 +8,7 @@ public class PlayerAnimationController : MonoBehaviour
     [SerializeField] Camera mainCam;
 
     [SerializeField] PlayerPitDetection pitDetection;
+    [SerializeField] HealthManager hm;
 
     bool isWalking = false;
 
@@ -20,6 +21,7 @@ public class PlayerAnimationController : MonoBehaviour
     {
         throwing = GetComponent<PlayerThrowing>();
         pitDetection = GetComponentInChildren<PlayerPitDetection>();
+        hm = GetComponent<HealthManager>();
     }
 
     void OnEnable()
@@ -33,6 +35,9 @@ public class PlayerAnimationController : MonoBehaviour
         throwing.OnHeadPickup += HandleHeadPickup;
 
         pitDetection.OnPitDetected += HandlePit;
+
+        hm.OnDamageTaken += HandleDamage;
+        
     }
 
     void OnDisable()
@@ -46,6 +51,8 @@ public class PlayerAnimationController : MonoBehaviour
         throwing.OnHeadPickup -= HandleHeadPickup;
 
         pitDetection.OnPitDetected -= HandlePit;
+
+        hm.OnDamageTaken -= HandleDamage;
     }
 
     void HandleHeadLoss()
@@ -141,6 +148,11 @@ public class PlayerAnimationController : MonoBehaviour
             headlessBodyAnim.SetBool("hasFallen", true);
             StartCoroutine(RespawnRoutine());
         }
+    }
+
+    public void HandleDamage()
+    {
+        StartCoroutine(RespawnRoutine());
     }
 
     IEnumerator RespawnRoutine()

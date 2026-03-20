@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Linq;
 using UnityEngine;
 
 public enum PlayerMovementState
@@ -10,6 +11,9 @@ public enum PlayerMovementState
 
 public class PlayerMovement : MonoBehaviour
 {
+    [SerializeField] AudioSource source;
+    [SerializeField] AudioClip[] stepFX;
+
     [SerializeField] PlayerMovementState state;
     [SerializeField] Rigidbody2D rigidBody;
     [SerializeField] float moveSpeed;
@@ -19,6 +23,8 @@ public class PlayerMovement : MonoBehaviour
 
     Vector2 moveInput;
     Vector2 forward;
+
+    bool isMoving;
 
     void Awake()
     {
@@ -85,11 +91,14 @@ public class PlayerMovement : MonoBehaviour
     void HandleMovement(Vector2 input)
     {
         moveInput = input;
+        isMoving = true;
+        StartCoroutine(StepSFXGenerator());
     }
 
     void CancelMovement()
     {
         moveInput = Vector2.zero;
+        isMoving = false;
     }
 
     void HandleSprint()
@@ -118,6 +127,23 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(0.4f);
 
         CancelMovement();
+    }
+
+    IEnumerator StepSFXGenerator()
+    {
+        int randomStep = Random.Range(0, stepFX.Length);
+        
+        while (isMoving)
+        {
+            for (int i = 0; i < stepFX.Length; i++)
+            {
+                if (randomStep == i)
+                {
+                    source.PlayOneShot(stepFX[i]);
+                    yield return null;
+                }
+            }
+        }
     }
 
     public Vector2 GetMoveInput => moveInput;

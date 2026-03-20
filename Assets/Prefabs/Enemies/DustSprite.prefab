@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7479261798425377675}
   - component: {fileID: 8071936530288221976}
   - component: {fileID: 6576051178496928820}
+  - component: {fileID: 1993032571709377379}
   m_Layer: 0
   m_Name: DustSprite
   m_TagString: DetectionRadius
@@ -117,6 +118,7 @@ MonoBehaviour:
   amplitude: 0.0125
   frequency: 15
   detectionRadius: {fileID: 3399441832591009665}
+  hitbox: {fileID: 0}
   minDistanceToAttack: 1.5
   attackWindUpTime: 0.25
   attackSpeedModifier: 5
@@ -176,6 +178,20 @@ MonoBehaviour:
     RefIds:
     - rid: -2
       type: {class: , ns: , asm: }
+--- !u!114 &1993032571709377379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 993849715833377770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5eed58156d517474ca7bd6ad0491b9de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealthAmount: 5
+  currentHealth: 0
 --- !u!1 &5618882757512344161
 GameObject:
   m_ObjectHideFlags: 0

@@ -3,12 +3,14 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] PlayerPitDetection pitDetection;
+    HealthManager hm;
 
     Vector2 respawnPoint;
 
     void Awake()
     {
         pitDetection = GetComponentInChildren<PlayerPitDetection>();
+        hm = GetComponent<HealthManager>();
     }
 
     void OnEnable()
@@ -25,8 +27,6 @@ public class PlayerController : MonoBehaviour
 
     void HandlePit()
     {
-        HealthManager hm = GetComponent<HealthManager>();
-
         hm.Damage(10);
         Debug.Log($"{name} fell in the pit, took 10 points of damage. {hm.GetHealth()} remains.");
     }

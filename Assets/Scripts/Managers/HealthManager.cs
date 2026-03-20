@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class HealthManager : MonoBehaviour, IHealth
 {
+    public event Action OnDamageTaken;
+    
     [SerializeField] int maxHealthAmount = 20;
     [SerializeField] int currentHealth;
 
@@ -17,6 +19,10 @@ public class HealthManager : MonoBehaviour, IHealth
 
         if (currentHealth <= 0)
             HandleDeath();
+
+        OnDamageTaken?.Invoke();
+
+        HitStopManager.Instance.Stop(0.1f);
     }
 
     public int GetHealth()
@@ -35,6 +41,6 @@ public class HealthManager : MonoBehaviour, IHealth
     void HandleDeath()
     {
         Debug.Log($"{name} has died.");
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 }

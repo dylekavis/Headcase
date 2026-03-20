@@ -18,6 +18,7 @@ public class DustSpriteMovement : MonoBehaviour
 
     [SerializeField] DetectionRadius detectionRadius;
 
+    [SerializeField] Collider2D hitbox;
     [SerializeField] float minDistanceToAttack;
     [SerializeField] float attackWindUpTime;
     [SerializeField] float attackSpeedModifier;
@@ -89,11 +90,14 @@ public class DustSpriteMovement : MonoBehaviour
 
         while (isAttacking && targetToChase != null)
         {
+            hitbox.enabled = true;
             Vector2 attackDir = Vector2.MoveTowards(rb.position, targetToChase.transform.position, moveSpeed * attackSpeedModifier* Time.deltaTime);
             rb.MovePosition(attackDir);
             isAttacking = false;
             yield return null;
         }
+
+        hitbox.enabled = false;
 
         Vector2 moveToOrigin = Vector2.MoveTowards(rb.position, originalPos, moveSpeed * Time.deltaTime);
         rb.MovePosition(moveToOrigin);

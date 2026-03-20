@@ -20,10 +20,9 @@ public class HeadCollection : MonoBehaviour, IThrowable
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Throwable"))
-        {
-            Debug.Log($"head collided with {collision.gameObject.name}");
-            OnHeadCollect?.Invoke(collision.gameObject);
-        }
+        if (!collision.gameObject.CompareTag("Throwable") && !collision.gameObject.CompareTag("PickUpEnemy")) return;
+
+        Debug.Log($"head collided with {collision.gameObject.name}");
+        OnHeadCollect?.Invoke(collision.gameObject);
     }
 }

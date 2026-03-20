@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class BombSpiderMovement : MonoBehaviour
 {
-    [SerializeField] float moveSpeed = 15f;
+    [SerializeField] float moveSpeed = 5f;
 
     Transform targetToChase;
 

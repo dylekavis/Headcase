@@ -21,6 +21,7 @@ public class EyelerAIController : MonoBehaviour
 
 
     [Header("Attack Variables")]
+    [SerializeField] Collider2D hitBox;
     [SerializeField] float minDistanceToAttack = 1.5f;
     [SerializeField] float attackAttemptTime = 0.12f;
     [SerializeField] float attackAnimatonTime = 0.3f;
@@ -97,11 +98,15 @@ public class EyelerAIController : MonoBehaviour
 
         OnAttackStart?.Invoke();
 
+        hitBox.enabled = true;
+
         canAttack = false;
 
         yield return new WaitForSeconds(attackAnimatonTime);
 
         OnAttackEnd?.Invoke();
+
+        hitBox.enabled = false;
 
         yield return new WaitForSeconds(attackCooldownTime);
 
