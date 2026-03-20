@@ -25,6 +25,7 @@ public class PlayerMovement : MonoBehaviour
     Vector2 forward;
 
     bool isMoving;
+    bool isSprinting;
 
     void Awake()
     {
@@ -105,6 +106,8 @@ public class PlayerMovement : MonoBehaviour
     {
         if (moveInput == Vector2.zero) return;
         state = PlayerMovementState.Sprinting;
+
+        isSprinting = true;
     }
 
     void CancelSprint()
@@ -113,6 +116,8 @@ public class PlayerMovement : MonoBehaviour
             state = PlayerMovementState.Idle;
         else
             state = PlayerMovementState.Walking;
+
+        isSprinting = false;
     }
 
     void HandlePit()
@@ -131,18 +136,27 @@ public class PlayerMovement : MonoBehaviour
 
     IEnumerator StepSFXGenerator()
     {
-        int randomStep = Random.Range(0, stepFX.Length);
-        
         while (isMoving)
         {
+            if (source.isPlaying) yield break;
+            
+            int randomStep = Random.Range(0, stepFX.Length);
+            float randomPitch = Random.Range(0.9f, 1.1f);
+
             for (int i = 0; i < stepFX.Length; i++)
             {
                 if (randomStep == i)
                 {
+                    source.pitch = randomPitch;
                     source.PlayOneShot(stepFX[i]);
-                    yield return null;
+                    yield return new WaitUntil(() => !source.isPlaying);
                 }
             }
+
+            if (isMoving && !isSprinting)
+                yield return new WaitForSeconds(0.1f);
+            else   
+                yield return new WaitForSeconds(0.05f);
         }
     }
 

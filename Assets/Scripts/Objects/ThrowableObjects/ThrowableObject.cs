@@ -1,8 +1,11 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
 public class ThrowableObject : MonoBehaviour, IThrowable
 {
+    public event Action OnThrown;
+
     public int damageAmount;
 
     [SerializeField] IThrowable.State state;
@@ -28,6 +31,7 @@ public class ThrowableObject : MonoBehaviour, IThrowable
                 break;
             case IThrowable.State.Thrown:
                 rb.bodyType = RigidbodyType2D.Dynamic;
+                OnThrown?.Invoke();
                 StartCoroutine(CheckStopped());
                 break;
         } 
@@ -35,7 +39,12 @@ public class ThrowableObject : MonoBehaviour, IThrowable
 
     IEnumerator CheckStopped()
     {
-        yield return new WaitUntil(() => rb.IsSleeping());
+        float originalMass = rb.mass;
+        rb.mass = 5f;
+
+        if (rb.IsAwake())
+            yield return new WaitUntil(() => rb.IsSleeping() || rb.linearVelocity.sqrMagnitude < 0.01f);
+        rb.mass = originalMass;
 
         SetState(IThrowable.State.Idle);
     }
@@ -49,8 +58,9 @@ public class ThrowableObject : MonoBehaviour, IThrowable
     {
         if (state == IThrowable.State.Idle) return;
 
-        if (!collision.gameObject.CompareTag("NonPickUpEnemy")) return;
-        if (!collision.gameObject.CompareTag("PickUpEnemy")) return;
+        
+
+        if (!collision.gameObject.CompareTag("NonPickUpEnemy") && !collision.gameObject.CompareTag("PickUpEnemy")) return;
 
             HealthManager hm = collision.gameObject.GetComponent<HealthManager>();
 

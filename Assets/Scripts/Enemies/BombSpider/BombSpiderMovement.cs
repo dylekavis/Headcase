@@ -1,34 +1,47 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class BombSpiderMovement : MonoBehaviour
 {
     [SerializeField] float moveSpeed = 5f;
+    [SerializeField] ThrowableEnemy throwable;
 
     Transform targetToChase;
 
     Rigidbody2D rb;
     BombSpiderController controller;
 
+    float variableMoveSpeed;
+
+    bool isThrown => throwable.GetState() == IThrowable.State.Thrown;
+
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         controller = GetComponent<BombSpiderController>();
+        variableMoveSpeed = moveSpeed;
     }
 
     void OnEnable()
     {
         controller.OnChaseStart += HandleChase;
         controller.OnChaseEnd += CancelChase;
+        throwable.OnThrown += CancelChase;
     }
 
     void OnDisable()
     {
         controller.OnChaseStart -= HandleChase;
         controller.OnChaseEnd -= CancelChase;
+        throwable.OnThrown -= CancelChase;
     }
 
-    void Update()
+    void FixedUpdate()
     {
+        if (isThrown) return;
+
+        variableMoveSpeed = moveSpeed;
+
         if (targetToChase != null)
         {
             float distance = Vector2.Distance(transform.position, targetToChase.position);
@@ -55,5 +68,6 @@ public class BombSpiderMovement : MonoBehaviour
     void CancelChase()
     {
         targetToChase = null;
+        variableMoveSpeed = 0;
     }
 }
