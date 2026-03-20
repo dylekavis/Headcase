@@ -27,7 +27,7 @@ public class ThrowableObject : MonoBehaviour, IThrowable
         {
             case IThrowable.State.Idle:
                 rb.linearVelocity = Vector2.zero;
-                rb.bodyType = RigidbodyType2D.Static;
+                rb.bodyType = RigidbodyType2D.Kinematic;
                 break;
             case IThrowable.State.Thrown:
                 rb.bodyType = RigidbodyType2D.Dynamic;
@@ -41,9 +41,8 @@ public class ThrowableObject : MonoBehaviour, IThrowable
     {
         float originalMass = rb.mass;
         rb.mass = 5f;
-
-        if (rb.IsAwake())
-            yield return new WaitUntil(() => rb.IsSleeping() || rb.linearVelocity.sqrMagnitude < 0.01f);
+        
+        yield return new WaitUntil(() => rb.IsSleeping() || rb.linearVelocity.sqrMagnitude < 0.01f);
         rb.mass = originalMass;
 
         SetState(IThrowable.State.Idle);

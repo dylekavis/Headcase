@@ -33,6 +33,8 @@ public class BombSpiderController : MonoBehaviour
     [SerializeField] EnemyPitDetection pitDetection;
     [SerializeField] ThrowableEnemy throwable;
 
+    EnemySpawnPool spawnPool;
+
     bool isThrown => throwable.GetState() == IThrowable.State.Thrown;
 
     //Unsearialized references
@@ -40,6 +42,11 @@ public class BombSpiderController : MonoBehaviour
     bool canAttack = true;
 
     public float GetAttackDistance() => minDistanceToAttack;
+
+    public void RegisterSpawnPool(EnemySpawnPool pool)
+    {
+        spawnPool = pool;
+    }
     
     void OnEnable()
     {
@@ -93,7 +100,7 @@ public class BombSpiderController : MonoBehaviour
     IEnumerator AttackRoutine()
     {
         if (isThrown) yield break;
-        
+
         if (targetToFollow == null) yield break;
 
         float distance = Vector2.Distance(transform.position, targetToFollow.transform.position);
@@ -124,6 +131,7 @@ public class BombSpiderController : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
 
         gameObject.SetActive(false);
+        spawnPool.ActiveCount -= 1;
     }
 
     #endregion
@@ -131,5 +139,6 @@ public class BombSpiderController : MonoBehaviour
     void HandlePitFall()
     {
         gameObject.SetActive(false);
+        spawnPool.ActiveCount -= 1;
     }
 }
