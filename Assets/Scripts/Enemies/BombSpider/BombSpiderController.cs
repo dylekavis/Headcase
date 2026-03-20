@@ -30,6 +30,10 @@ public class BombSpiderController : MonoBehaviour
     [SerializeField] DetectionRadius detectionRadius;
     [SerializeField] SpriteRenderer spriteRenderer;
     [SerializeField] ParticleSystem ps;
+    [SerializeField] EnemyPitDetection pitDetection;
+    [SerializeField] ThrowableEnemy throwable;
+
+    bool isThrown => throwable.GetState() == IThrowable.State.Thrown;
 
     //Unsearialized references
     GameObject targetToFollow;
@@ -41,12 +45,16 @@ public class BombSpiderController : MonoBehaviour
     {
         detectionRadius.OnPlayerDetected += HandleDetectTarget;
         detectionRadius.OnPlayerUndetected += CancelDetectTarget;
+
+        pitDetection.OnPitFall += HandlePitFall;
     }
 
     void OnDisable()
     {
         detectionRadius.OnPlayerDetected -= HandleDetectTarget;
         detectionRadius.OnPlayerUndetected -= CancelDetectTarget;
+
+        pitDetection.OnPitFall -= HandlePitFall;
     }
 
 #region Target Detection
@@ -84,6 +92,8 @@ public class BombSpiderController : MonoBehaviour
 
     IEnumerator AttackRoutine()
     {
+        if (isThrown) yield break;
+        
         if (targetToFollow == null) yield break;
 
         float distance = Vector2.Distance(transform.position, targetToFollow.transform.position);
@@ -117,4 +127,9 @@ public class BombSpiderController : MonoBehaviour
     }
 
     #endregion
+
+    void HandlePitFall()
+    {
+        gameObject.SetActive(false);
+    }
 }

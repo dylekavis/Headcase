@@ -5,6 +5,7 @@ public class BombSpiderAnimationController : MonoBehaviour
     [SerializeField] Animator anim;
 
     [SerializeField] BombSpiderController controller;
+    [SerializeField] EnemyPitDetection pitDetection;
 
     void Start()
     {
@@ -17,7 +18,10 @@ public class BombSpiderAnimationController : MonoBehaviour
         controller.OnChaseEnd += CancelMove;
 
         controller.OnAttackStart += HandleAttack;
-        controller.OnAttackEnd += CancelAttack;    
+        controller.OnAttackEnd += CancelAttack;
+
+        pitDetection.OnPitDetected += HandlePit;
+        pitDetection.OnPitFall -= EndPitAnim;      
     }
 
     void OnDisable()
@@ -26,7 +30,10 @@ public class BombSpiderAnimationController : MonoBehaviour
         controller.OnChaseEnd -= CancelMove;
 
         controller.OnAttackStart -= HandleAttack;
-        controller.OnAttackEnd -= CancelAttack;  
+        controller.OnAttackEnd -= CancelAttack;
+
+        pitDetection.OnPitDetected -= HandlePit;
+        pitDetection.OnPitFall -= EndPitAnim;  
     }
 
     void HandleMove(Transform target)
@@ -50,6 +57,16 @@ public class BombSpiderAnimationController : MonoBehaviour
     }
 
     void CancelAttack()
+    {
+        HandleIdle();
+    }
+
+    void HandlePit()
+    {
+        anim.SetInteger("SwitchState", 3);
+    }
+
+    void EndPitAnim()
     {
         HandleIdle();
     }
