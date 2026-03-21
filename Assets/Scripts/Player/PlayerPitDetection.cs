@@ -4,37 +4,28 @@ using UnityEngine;
 
 public class PlayerPitDetection : MonoBehaviour
 {
-    public event Action OnPitDetected;
-    public event Action<Vector2> OnRespawnCreated;
-
-    PlayerMovement pm;
+    public event Action<Vector2> OnPitDetected;
+    public event Action OnPitUndetected;
 
     Vector2 respawnPoint;
-
-    void Awake()
-    {
-        pm = GetComponentInParent<PlayerMovement>();
-    }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Pit"))
         {
-            OnPitDetected?.Invoke();
             Debug.Log($"{name} detected the pit");
 
             Vector2 moveDir = pm.GetMoveInput.normalized;
 
             respawnPoint = (Vector2)transform.position - moveDir * 1.5f;
-
-            StartCoroutine(RespawnDelay());
+            OnPitDetected?.Invoke(respawnPoint);
         }
     }
 
-    IEnumerator RespawnDelay()
+    void OnTriggerExit2D(Collider2D collision)
     {
-        yield return new WaitForSeconds(0.4f);
-
-        OnRespawnCreated?.Invoke(respawnPoint);
+        if(collision.gameObject.CompareTag("Pit")
+        {
+            OnPitUndetected?.Invoke();
+        }
     }
-}
