@@ -32,6 +32,8 @@ public class BombSpiderController : MonoBehaviour
     [SerializeField] ParticleSystem ps;
     [SerializeField] EnemyPitDetection pitDetection;
     [SerializeField] ThrowableEnemy throwable;
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioClip explosionClip;
 
     EnemySpawnPool spawnPool;
 
@@ -123,6 +125,9 @@ public class BombSpiderController : MonoBehaviour
 
         ps.gameObject.SetActive(true);
         ps.Play();
+
+        audioSource.pitch = UnityEngine.Random.Range(0.9f, 1.1f);
+        audioSource.PlayOneShot(explosionClip);
         
         yield return new WaitForSeconds(0.2f);
 

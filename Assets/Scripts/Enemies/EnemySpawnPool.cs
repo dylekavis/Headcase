@@ -48,7 +48,12 @@ public class EnemySpawnPool : MonoBehaviour
 
             foreach (var spawn in spawnedEnemies)
             {
-                if (ActiveCount >= numToActivate) break;
+                if (ActiveCount >= numToActivate)
+                {
+                    isSpawning = false;
+                    break;
+                } 
+                
                 if (spawn.gameObject.activeInHierarchy) continue;
                 
                 Vector2 randomPoint = Random.insideUnitCircle * spawnRadius;

@@ -11,12 +11,20 @@ public class ThrowableObject : MonoBehaviour, IThrowable
     [SerializeField] IThrowable.State state;
 
     Rigidbody2D rb;
+    ObjectSpawnPool spawnPool;
+    
+    public ObjectSpawnPool GetSpawnPool() => spawnPool;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
 
         SetState(IThrowable.State.Idle);
+    }
+
+    public void RegisterSpawnPool(ObjectSpawnPool pool)
+    {
+        spawnPool = pool;
     }
 
     public void SetState(IThrowable.State state)
@@ -41,7 +49,8 @@ public class ThrowableObject : MonoBehaviour, IThrowable
     {
         float originalMass = rb.mass;
         rb.mass = 5f;
-        
+        yield return new WaitForSeconds(0.1f);
+
         yield return new WaitUntil(() => rb.IsSleeping() || rb.linearVelocity.sqrMagnitude < 0.01f);
         rb.mass = originalMass;
 
