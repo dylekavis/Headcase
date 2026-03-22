@@ -16,6 +16,8 @@ public class PlayerInputManager : MonoBehaviour
     public event Action<Vector2> OnThrowCancelled;
     public event Action<Vector2> OnPlayerLook;
     public event Action OnLookCancelled;
+    public event Action OnJumpStarted;
+    public event Action OnJumpCancelled;
 
     [SerializeField] Camera mainCam;
 
@@ -95,6 +97,19 @@ public class PlayerInputManager : MonoBehaviour
 
             aimDirection = direction.normalized;
             OnPlayerLook?.Invoke(aimDirection);
+        }
+    }
+
+    public void HandleJump(InputAction.CallbackContext ctx)
+    {
+        if (ctx.performed)
+        {
+            OnJumpStarted?.Invoke();
+        }
+        
+        if(ctx.canceled)
+        {
+            OnJumpCancelled?.Invoke();
         }
     }
 }
