@@ -7,7 +7,15 @@ public class PlayerPitDetection : MonoBehaviour
     public event Action<Vector2> OnPitDetected;
     public event Action OnPitUndetected;
 
+    public event Action<Vector2> OnRespawnCreated;
+
     Vector2 respawnPoint;
+    PlayerMovement pm;
+
+    void Start()
+    {
+        pm = GetComponent<PlayerMovement>();
+    }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
@@ -24,8 +32,9 @@ public class PlayerPitDetection : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D collision)
     {
-        if(collision.gameObject.CompareTag("Pit")
+        if(collision.gameObject.CompareTag("Pit"))
         {
             OnPitUndetected?.Invoke();
         }
     }
+}

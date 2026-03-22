@@ -136,7 +136,7 @@ public class PlayerAnimationController : MonoBehaviour
 
     }
 
-    public void HandlePit()
+    public void HandlePit(Vector2 pit)
     {
         if (hasHead)
         {

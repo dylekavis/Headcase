@@ -120,7 +120,7 @@ public class PlayerMovement : MonoBehaviour
         isSprinting = false;
     }
 
-    void HandlePit()
+    void HandlePit(Vector2 pit)
     {
         transform.position += (Vector3)moveInput.normalized;
 

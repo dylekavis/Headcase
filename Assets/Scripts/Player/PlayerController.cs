@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour
         pitDetection.OnRespawnCreated -= HandleRespawn;
     }
 
-    void HandlePit()
+    void HandlePit(Vector2 pit)
     {
         hm.Damage(10);
         Debug.Log($"{name} fell in the pit, took 10 points of damage. {hm.GetHealth()} remains.");
