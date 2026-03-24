@@ -1,112 +1,103 @@
 fileFormatVersion: 2
-guid: 4b2fcffd3b9c79e4d9d77b3a1cefa27b
+guid: 3cabf02d0aee7d2479de640c27bd0e7f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7604897861256768500
-    second: Boxhead_HeadOnly-Sheet_0
+      213: 6686395008545666231
+    second: Boxhead-Sheet_0
   - first:
-      213: 6338176251185189620
-    second: Boxhead_HeadOnly-Sheet_1
+      213: 7553083184058503628
+    second: Boxhead-Sheet_1
   - first:
-      213: -4037316506783059850
-    second: Boxhead_HeadOnly-Sheet_2
+      213: 7791166761107106380
+    second: Boxhead-Sheet_2
   - first:
-      213: -6470356987033804310
-    second: Boxhead_HeadOnly-Sheet_3
+      213: -1229091025526890683
+    second: Boxhead-Sheet_3
   - first:
-      213: 4516649697549356385
-    second: Boxhead_HeadOnly-Sheet_4
+      213: -6269848899435924561
+    second: Boxhead-Sheet_4
   - first:
-      213: -8989221755117967271
-    second: Boxhead_HeadOnly-Sheet_5
+      213: -3540969847437050617
+    second: Boxhead-Sheet_5
   - first:
-      213: -6945200469624781835
-    second: Boxhead_HeadOnly-Sheet_6
+      213: -2081968282438878091
+    second: Boxhead-Sheet_6
   - first:
-      213: 3855041930444424891
-    second: Boxhead_HeadOnly-Sheet_7
+      213: 8962877973204954390
+    second: Boxhead-Sheet_7
   - first:
-      213: 209749040264483270
-    second: Boxhead_HeadOnly-Sheet_8
+      213: -2693876316200787497
+    second: Boxhead-Sheet_8
   - first:
-      213: -4826183557507813970
-    second: Boxhead_HeadOnly-Sheet_9
+      213: -3754825423456734965
+    second: Boxhead-Sheet_9
   - first:
-      213: -8619565588773064201
-    second: Boxhead_HeadOnly-Sheet_10
+      213: -377696558041599379
+    second: Boxhead-Sheet_10
   - first:
-      213: -3194274710058483440
-    second: Boxhead_HeadOnly-Sheet_11
+      213: 1722788839179287259
+    second: Boxhead-Sheet_11
   - first:
-      213: -8009481766938756698
-    second: Boxhead_HeadOnly-Sheet_12
+      213: -5183244705276310391
+    second: Boxhead-Sheet_12
   - first:
-      213: -6775873228283467158
-    second: Boxhead_HeadOnly-Sheet_13
+      213: 7133458369777558556
+    second: Boxhead-Sheet_13
   - first:
-      213: -7134897211223744447
-    second: Boxhead_HeadOnly-Sheet_14
+      213: -2976240651868454619
+    second: Boxhead-Sheet_14
   - first:
-      213: -3467869628588476855
-    second: Boxhead_HeadOnly-Sheet_15
+      213: -6229650224688545296
+    second: Boxhead-Sheet_15
   - first:
-      213: 716892880458223518
-    second: Boxhead_HeadOnly-Sheet_16
+      213: -6285273841437375192
+    second: Boxhead-Sheet_16
   - first:
-      213: 4101763713840821867
-    second: Boxhead_HeadOnly-Sheet_17
+      213: -156774737299152471
+    second: Boxhead-Sheet_17
   - first:
-      213: 8687532778493888985
-    second: Boxhead_HeadOnly-Sheet_18
+      213: -2593332601721092233
+    second: Boxhead-Sheet_18
   - first:
-      213: -4771751772418299580
-    second: Boxhead_HeadOnly-Sheet_19
+      213: -8771279182206947732
+    second: Boxhead-Sheet_19
   - first:
-      213: -7410504270562308875
-    second: Boxhead_HeadOnly-Sheet_20
+      213: -7722362704886589223
+    second: Boxhead-Sheet_20
   - first:
-      213: -3601021364014025003
-    second: Boxhead_HeadOnly-Sheet_21
+      213: -4900323235236843828
+    second: Boxhead-Sheet_21
   - first:
-      213: -5180150194293500033
-    second: Boxhead_HeadOnly-Sheet_22
+      213: -5608553665436008808
+    second: Boxhead-Sheet_22
   - first:
-      213: -5587910017371135158
-    second: Boxhead_HeadOnly-Sheet_23
+      213: -8414989861984489576
+    second: Boxhead-Sheet_23
   - first:
-      213: 5891227481498835568
-    second: Boxhead_HeadOnly-Sheet_24
+      213: -2193295536170824173
+    second: Boxhead-Sheet_24
   - first:
-      213: 1229627190576601242
-    second: Boxhead_HeadOnly-Sheet_25
+      213: -2591424323143741626
+    second: Boxhead-Sheet_25
   - first:
-      213: -7125797016911157111
-    second: Boxhead_HeadOnly-Sheet_26
+      213: 6965321639112764842
+    second: Boxhead-Sheet_26
   - first:
-      213: -6427092527689422386
-    second: Boxhead_HeadOnly-Sheet_27
+      213: 3262926722516306503
+    second: Boxhead-Sheet_27
   - first:
-      213: -3668770996005551578
-    second: Boxhead_HeadOnly-Sheet_28
+      213: -1434229895771270889
+    second: Boxhead-Sheet_28
   - first:
-      213: -482877185993522333
-    second: Boxhead_HeadOnly-Sheet_29
+      213: -4735388451551017824
+    second: Boxhead-Sheet_29
   - first:
-      213: -5262247492334777430
-    second: Boxhead_HeadOnly-Sheet_30
+      213: -7441114435965499820
+    second: Boxhead-Sheet_30
   - first:
-      213: 7311749939947423708
-    second: Boxhead_HeadOnly-Sheet_31
-  - first:
-      213: -3885635225476305951
-    second: Boxhead_HeadOnly-Sheet_32
-  - first:
-      213: -7914337170041389723
-    second: Boxhead_HeadOnly-Sheet_33
-  - first:
-      213: -6571494414173987617
-    second: Boxhead_HeadOnly-Sheet_34
+      213: -3507278883825065240
+    second: Boxhead-Sheet_31
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -139,7 +130,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -153,7 +144,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -177,7 +168,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -202,13 +193,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Boxhead_HeadOnly-Sheet_0
+      name: Boxhead-Sheet_0
       rect:
         serializedVersion: 2
-        x: 26
-        y: 288
-        width: 11
-        height: 11
+        x: 0
+        y: 256
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -217,20 +208,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c0499aa00b9f57690800000000000000
-      internalID: -7604897861256768500
+      spriteID: 7b43f4095d8dacc50800000000000000
+      internalID: 6686395008545666231
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boxhead_HeadOnly-Sheet_1
+      name: Boxhead-Sheet_1
       rect:
         serializedVersion: 2
-        x: 90
-        y: 289
-        width: 11
-        height: 11
+        x: 64
+        y: 256
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -239,20 +230,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4f2d5b728b9b5f750800000000000000
-      internalID: 6338176251185189620
+      spriteID: cc198c05321f1d860800000000000000
+      internalID: 7553083184058503628
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boxhead_HeadOnly-Sheet_2
+      name: Boxhead-Sheet_2
       rect:
         serializedVersion: 2
-        x: 154
-        y: 288
-        width: 11
-        height: 11
+        x: 128
+        y: 256
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -261,20 +252,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 670ff57170298f7c0800000000000000
-      internalID: -4037316506783059850
+      spriteID: c4aae9dc3e8cf1c60800000000000000
+      internalID: 7791166761107106380
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boxhead_HeadOnly-Sheet_3
+      name: Boxhead-Sheet_3
       rect:
         serializedVersion: 2
-        x: 218
-        y: 287
-        width: 11
-        height: 11
+        x: 192
+        y: 256
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -283,20 +274,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ae122e90a9ca436a0800000000000000
-      internalID: -6470356987033804310
+      spriteID: 54f59da693461fee0800000000000000
+      internalID: -1229091025526890683
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boxhead_HeadOnly-Sheet_4
+      name: Boxhead-Sheet_4
       rect:
         serializedVersion: 2
-        x: 281
-        y: 287
-        width: 14
-        height: 13
+        x: 256
+        y: 256
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -305,20 +296,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 16d0e4d38fc5eae30800000000000000
-      internalID: 4516649697549356385
+      spriteID: fa37fb125a50df8a0800000000000000
+      internalID: -6269848899435924561
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boxhead_HeadOnly-Sheet_5
+      name: Boxhead-Sheet_5
       rect:
         serializedVersion: 2
-        x: 345
-        y: 288
-        width: 14
-        height: 13
+        x: 320
+        y: 256
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -327,20 +318,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 958eafec07edf3380800000000000000
-      internalID: -8989221755117967271
+      spriteID: 70d35234fa2fbdec0800000000000000
+      internalID: -3540969847437050617
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boxhead_HeadOnly-Sheet_6
+      name: Boxhead-Sheet_6
       rect:
         serializedVersion: 2
-        x: 409
-        y: 287
-        width: 14
-        height: 13
+        x: 384
+        y: 256
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -349,20 +340,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5f3832a58f0bd9f90800000000000000
-      internalID: -6945200469624781835
+      spriteID: 57cb99bb0ec5b13e0800000000000000
+      internalID: -2081968282438878091
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boxhead_HeadOnly-Sheet_7
+      name: Boxhead-Sheet_7
       rect:
         serializedVersion: 2
-        x: 473
-        y: 286
-        width: 14
-        height: 13
+        x: 448
+        y: 256
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -371,20 +362,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: bb6406af53cdf7530800000000000000
-      internalID: 3855041930444424891
+      spriteID: 61ded0e770a826c70800000000000000
+      internalID: 8962877973204954390
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boxhead_HeadOnly-Sheet_8
+      name: Boxhead-Sheet_8
       rect:
         serializedVersion: 2
-        x: 26
-        y: 224
-        width: 11
-        height: 11
+        x: 0
+        y: 192
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -393,20 +384,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6c191fc04ad29e200800000000000000
-      internalID: 209749040264483270
+      spriteID: 7d1a30063cd6d9ad0800000000000000
+      internalID: -2693876316200787497
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boxhead_HeadOnly-Sheet_9
+      name: Boxhead-Sheet_9
       rect:
         serializedVersion: 2
-        x: 90
-        y: 225
-        width: 11
-        height: 11
+        x: 64
+        y: 192
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -415,20 +406,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ead6ae9ef93f50db0800000000000000
-      internalID: -4826183557507813970
+      spriteID: b017149db2e24ebc0800000000000000
+      internalID: -3754825423456734965
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boxhead_HeadOnly-Sheet_10
+      name: Boxhead-Sheet_10
       rect:
         serializedVersion: 2
-        x: 154
-        y: 224
-        width: 11
-        height: 11
+        x: 128
+        y: 192
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -437,20 +428,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7f13003f3c6216880800000000000000
-      internalID: -8619565588773064201
+      spriteID: d62fa094bf622caf0800000000000000
+      internalID: -377696558041599379
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boxhead_HeadOnly-Sheet_11
+      name: Boxhead-Sheet_11
       rect:
         serializedVersion: 2
-        x: 218
-        y: 223
-        width: 11
-        height: 11
+        x: 192
+        y: 192
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -459,20 +450,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 01143ff3318aba3d0800000000000000
-      internalID: -3194274710058483440
+      spriteID: bdaf94e425398e710800000000000000
+      internalID: 1722788839179287259
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boxhead_HeadOnly-Sheet_12
+      name: Boxhead-Sheet_12
       rect:
         serializedVersion: 2
-        x: 281
-        y: 223
-        width: 14
-        height: 13
+        x: 256
+        y: 192
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -481,20 +472,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6a9b5aed4ca98d090800000000000000
-      internalID: -8009481766938756698
+      spriteID: 98cc41e076a6118b0800000000000000
+      internalID: -5183244705276310391
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boxhead_HeadOnly-Sheet_13
+      name: Boxhead-Sheet_13
       rect:
         serializedVersion: 2
-        x: 345
-        y: 224
-        width: 14
-        height: 13
+        x: 320
+        y: 192
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -503,20 +494,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a6aa511f23347f1a0800000000000000
-      internalID: -6775873228283467158
+      spriteID: c14e0a6b7922ff260800000000000000
+      internalID: 7133458369777558556
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boxhead_HeadOnly-Sheet_14
+      name: Boxhead-Sheet_14
       rect:
         serializedVersion: 2
-        x: 409
-        y: 223
-        width: 14
-        height: 13
+        x: 384
+        y: 192
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -525,20 +516,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1406518e9c0cbfc90800000000000000
-      internalID: -7134897211223744447
+      spriteID: 521cd4b55e442b6d0800000000000000
+      internalID: -2976240651868454619
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boxhead_HeadOnly-Sheet_15
+      name: Boxhead-Sheet_15
       rect:
         serializedVersion: 2
-        x: 473
-        y: 221
-        width: 14
-        height: 13
+        x: 448
+        y: 192
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -547,20 +538,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9463e9442f6afdfc0800000000000000
-      internalID: -3467869628588476855
+      spriteID: 0f1c1827026db89a0800000000000000
+      internalID: -6229650224688545296
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boxhead_HeadOnly-Sheet_16
+      name: Boxhead-Sheet_16
       rect:
         serializedVersion: 2
-        x: 26
-        y: 160
-        width: 11
-        height: 11
+        x: 0
+        y: 128
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -569,20 +560,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e9f08b9c64ae2f900800000000000000
-      internalID: 716892880458223518
+      spriteID: 8250215fdb836c8a0800000000000000
+      internalID: -6285273841437375192
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boxhead_HeadOnly-Sheet_17
+      name: Boxhead-Sheet_17
       rect:
         serializedVersion: 2
-        x: 90
-        y: 161
-        width: 11
-        height: 11
+        x: 64
+        y: 128
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -591,20 +582,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b66b11c9d546ce830800000000000000
-      internalID: 4101763713840821867
+      spriteID: 9a16781053603ddf0800000000000000
+      internalID: -156774737299152471
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boxhead_HeadOnly-Sheet_18
+      name: Boxhead-Sheet_18
       rect:
         serializedVersion: 2
-        x: 154
-        y: 160
-        width: 11
-        height: 11
+        x: 128
+        y: 128
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -613,20 +604,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9d9c0b49801509870800000000000000
-      internalID: 8687532778493888985
+      spriteID: 77789f12db1a20cd0800000000000000
+      internalID: -2593332601721092233
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boxhead_HeadOnly-Sheet_19
+      name: Boxhead-Sheet_19
       rect:
         serializedVersion: 2
-        x: 218
-        y: 159
-        width: 11
-        height: 11
+        x: 192
+        y: 128
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -635,20 +626,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 449aaa87b0557cdb0800000000000000
-      internalID: -4771751772418299580
+      spriteID: c6ea6c65e08264680800000000000000
+      internalID: -8771279182206947732
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boxhead_HeadOnly-Sheet_20
+      name: Boxhead-Sheet_20
       rect:
         serializedVersion: 2
-        x: 281
-        y: 159
-        width: 14
-        height: 13
+        x: 256
+        y: 128
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -657,20 +648,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5fc4e92e0a9982990800000000000000
-      internalID: -7410504270562308875
+      spriteID: 9d89284e808a4d490800000000000000
+      internalID: -7722362704886589223
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boxhead_HeadOnly-Sheet_21
+      name: Boxhead-Sheet_21
       rect:
         serializedVersion: 2
-        x: 345
-        y: 160
-        width: 14
-        height: 13
+        x: 320
+        y: 128
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -679,20 +670,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5d6f951062a960ec0800000000000000
-      internalID: -3601021364014025003
+      spriteID: cce6d170bfd8efbb0800000000000000
+      internalID: -4900323235236843828
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boxhead_HeadOnly-Sheet_22
+      name: Boxhead-Sheet_22
       rect:
         serializedVersion: 2
-        x: 409
-        y: 159
-        width: 14
-        height: 13
+        x: 384
+        y: 128
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -701,20 +692,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f7717f908d86c18b0800000000000000
-      internalID: -5180150194293500033
+      spriteID: 89eb8fb182a6a22b0800000000000000
+      internalID: -5608553665436008808
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boxhead_HeadOnly-Sheet_23
+      name: Boxhead-Sheet_23
       rect:
         serializedVersion: 2
-        x: 473
-        y: 158
-        width: 14
-        height: 13
+        x: 448
+        y: 128
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -723,20 +714,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a432fb9f171c372b0800000000000000
-      internalID: -5587910017371135158
+      spriteID: 89fa6e71e43f73b80800000000000000
+      internalID: -8414989861984489576
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boxhead_HeadOnly-Sheet_24
+      name: Boxhead-Sheet_24
       rect:
         serializedVersion: 2
-        x: 26
-        y: 96
-        width: 11
-        height: 11
+        x: 0
+        y: 64
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -745,20 +736,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 07ad1cd6e28d1c150800000000000000
-      internalID: 5891227481498835568
+      spriteID: 31e86179459df81e0800000000000000
+      internalID: -2193295536170824173
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boxhead_HeadOnly-Sheet_25
+      name: Boxhead-Sheet_25
       rect:
         serializedVersion: 2
-        x: 90
-        y: 97
-        width: 11
-        height: 11
+        x: 64
+        y: 64
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -767,20 +758,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a98da7c3a63801110800000000000000
-      internalID: 1229627190576601242
+      spriteID: 64fc5bcde49690cd0800000000000000
+      internalID: -2591424323143741626
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boxhead_HeadOnly-Sheet_26
+      name: Boxhead-Sheet_26
       rect:
         serializedVersion: 2
-        x: 154
-        y: 96
-        width: 11
-        height: 11
+        x: 128
+        y: 64
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -789,20 +780,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 988e8710e551c1d90800000000000000
-      internalID: -7125797016911157111
+      spriteID: aad68ad702bc9a060800000000000000
+      internalID: 6965321639112764842
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boxhead_HeadOnly-Sheet_27
+      name: Boxhead-Sheet_27
       rect:
         serializedVersion: 2
-        x: 218
-        y: 36
-        width: 11
-        height: 70
+        x: 192
+        y: 64
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -811,20 +802,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ec92184f5616ec6a0800000000000000
-      internalID: -6427092527689422386
+      spriteID: 74ac6bff09e384d20800000000000000
+      internalID: 3262926722516306503
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boxhead_HeadOnly-Sheet_28
+      name: Boxhead-Sheet_28
       rect:
         serializedVersion: 2
-        x: 281
-        y: 95
-        width: 14
-        height: 13
+        x: 256
+        y: 64
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -833,20 +824,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 62245d49738e51dc0800000000000000
-      internalID: -3668770996005551578
+      spriteID: 711de483287981ce0800000000000000
+      internalID: -1434229895771270889
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boxhead_HeadOnly-Sheet_29
+      name: Boxhead-Sheet_29
       rect:
         serializedVersion: 2
-        x: 345
-        y: 96
-        width: 14
-        height: 13
+        x: 320
+        y: 64
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -855,20 +846,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 36347baf1c97c49f0800000000000000
-      internalID: -482877185993522333
+      spriteID: 0a480dfda45884eb0800000000000000
+      internalID: -4735388451551017824
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boxhead_HeadOnly-Sheet_30
+      name: Boxhead-Sheet_30
       rect:
         serializedVersion: 2
-        x: 409
-        y: 95
-        width: 14
-        height: 13
+        x: 384
+        y: 64
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -877,20 +868,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: aab023b49cdb8f6b0800000000000000
-      internalID: -5262247492334777430
+      spriteID: 456ce3f58d9dbb890800000000000000
+      internalID: -7441114435965499820
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boxhead_HeadOnly-Sheet_31
+      name: Boxhead-Sheet_31
       rect:
         serializedVersion: 2
-        x: 473
-        y: 93
-        width: 14
-        height: 13
+        x: 448
+        y: 64
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -899,74 +890,96 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: cd7cc01c4dd887560800000000000000
-      internalID: 7311749939947423708
+      spriteID: 8e2e0610074a35fc0800000000000000
+      internalID: -3507278883825065240
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boxhead_HeadOnly-Sheet_32
+      name: Boxhead-Sheet_32
       rect:
         serializedVersion: 2
-        x: 26
-        y: 32
-        width: 11
-        height: 11
+        x: 0
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 1eb6db27953731ac0800000000000000
-      internalID: -3885635225476305951
+      spriteID: 12656e78ec1aa2243b833b95a9eab73d
+      internalID: 1700032958
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boxhead_HeadOnly-Sheet_33
+      name: Boxhead-Sheet_33
       rect:
         serializedVersion: 2
-        x: 90
-        y: 32
-        width: 10
-        height: 11
+        x: 64
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 56d330b9640aa2290800000000000000
-      internalID: -7914337170041389723
+      spriteID: 99f94f54db3303a47aa59bd10be043d4
+      internalID: 228508675
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boxhead_HeadOnly-Sheet_34
+      name: Boxhead-Sheet_34
       rect:
         serializedVersion: 2
-        x: 156
-        y: 34
-        width: 7
-        height: 7
+        x: 128
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: fdc12b7c5ac5dc4a0800000000000000
-      internalID: -6571494414173987617
+      spriteID: ab606132bf564404699de9488400265a
+      internalID: -793750961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boxhead-Sheet_35
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e19fa8c5dbd0bc4b8c6d3d9e68f22c8
+      internalID: 609890401
       vertices: []
       indices: 
       edges: []
@@ -975,7 +988,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: d27ec47d69a3e0d48985507b6dd9146a
     internalID: 0
     vertices: []
     indices: 
@@ -983,43 +996,46 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      Boxhead_HeadOnly-Sheet_0: -7604897861256768500
-      Boxhead_HeadOnly-Sheet_1: 6338176251185189620
-      Boxhead_HeadOnly-Sheet_10: -8619565588773064201
-      Boxhead_HeadOnly-Sheet_11: -3194274710058483440
-      Boxhead_HeadOnly-Sheet_12: -8009481766938756698
-      Boxhead_HeadOnly-Sheet_13: -6775873228283467158
-      Boxhead_HeadOnly-Sheet_14: -7134897211223744447
-      Boxhead_HeadOnly-Sheet_15: -3467869628588476855
-      Boxhead_HeadOnly-Sheet_16: 716892880458223518
-      Boxhead_HeadOnly-Sheet_17: 4101763713840821867
-      Boxhead_HeadOnly-Sheet_18: 8687532778493888985
-      Boxhead_HeadOnly-Sheet_19: -4771751772418299580
-      Boxhead_HeadOnly-Sheet_2: -4037316506783059850
-      Boxhead_HeadOnly-Sheet_20: -7410504270562308875
-      Boxhead_HeadOnly-Sheet_21: -3601021364014025003
-      Boxhead_HeadOnly-Sheet_22: -5180150194293500033
-      Boxhead_HeadOnly-Sheet_23: -5587910017371135158
-      Boxhead_HeadOnly-Sheet_24: 5891227481498835568
-      Boxhead_HeadOnly-Sheet_25: 1229627190576601242
-      Boxhead_HeadOnly-Sheet_26: -7125797016911157111
-      Boxhead_HeadOnly-Sheet_27: -6427092527689422386
-      Boxhead_HeadOnly-Sheet_28: -3668770996005551578
-      Boxhead_HeadOnly-Sheet_29: -482877185993522333
-      Boxhead_HeadOnly-Sheet_3: -6470356987033804310
-      Boxhead_HeadOnly-Sheet_30: -5262247492334777430
-      Boxhead_HeadOnly-Sheet_31: 7311749939947423708
-      Boxhead_HeadOnly-Sheet_32: -3885635225476305951
-      Boxhead_HeadOnly-Sheet_33: -7914337170041389723
-      Boxhead_HeadOnly-Sheet_34: -6571494414173987617
-      Boxhead_HeadOnly-Sheet_4: 4516649697549356385
-      Boxhead_HeadOnly-Sheet_5: -8989221755117967271
-      Boxhead_HeadOnly-Sheet_6: -6945200469624781835
-      Boxhead_HeadOnly-Sheet_7: 3855041930444424891
-      Boxhead_HeadOnly-Sheet_8: 209749040264483270
-      Boxhead_HeadOnly-Sheet_9: -4826183557507813970
+      Boxhead-Sheet_0: 6686395008545666231
+      Boxhead-Sheet_1: 7553083184058503628
+      Boxhead-Sheet_10: -377696558041599379
+      Boxhead-Sheet_11: 1722788839179287259
+      Boxhead-Sheet_12: -5183244705276310391
+      Boxhead-Sheet_13: 7133458369777558556
+      Boxhead-Sheet_14: -2976240651868454619
+      Boxhead-Sheet_15: -6229650224688545296
+      Boxhead-Sheet_16: -6285273841437375192
+      Boxhead-Sheet_17: -156774737299152471
+      Boxhead-Sheet_18: -2593332601721092233
+      Boxhead-Sheet_19: -8771279182206947732
+      Boxhead-Sheet_2: 7791166761107106380
+      Boxhead-Sheet_20: -7722362704886589223
+      Boxhead-Sheet_21: -4900323235236843828
+      Boxhead-Sheet_22: -5608553665436008808
+      Boxhead-Sheet_23: -8414989861984489576
+      Boxhead-Sheet_24: -2193295536170824173
+      Boxhead-Sheet_25: -2591424323143741626
+      Boxhead-Sheet_26: 6965321639112764842
+      Boxhead-Sheet_27: 3262926722516306503
+      Boxhead-Sheet_28: -1434229895771270889
+      Boxhead-Sheet_29: -4735388451551017824
+      Boxhead-Sheet_3: -1229091025526890683
+      Boxhead-Sheet_30: -7441114435965499820
+      Boxhead-Sheet_31: -3507278883825065240
+      Boxhead-Sheet_32: 1700032958
+      Boxhead-Sheet_33: 228508675
+      Boxhead-Sheet_34: -793750961
+      Boxhead-Sheet_35: 609890401
+      Boxhead-Sheet_4: -6269848899435924561
+      Boxhead-Sheet_5: -3540969847437050617
+      Boxhead-Sheet_6: -2081968282438878091
+      Boxhead-Sheet_7: 8962877973204954390
+      Boxhead-Sheet_8: -2693876316200787497
+      Boxhead-Sheet_9: -3754825423456734965
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

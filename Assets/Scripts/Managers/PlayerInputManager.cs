@@ -12,12 +12,14 @@ public class PlayerInputManager : MonoBehaviour
     public event Action OnMoveCancelled;
     public event Action OnSprint;
     public event Action OnSprintCancelled;
-    public event Action OnThrow;
+    public event Action<Vector2> OnThrow;
     public event Action<Vector2> OnThrowCancelled;
     public event Action<Vector2> OnPlayerLook;
     public event Action OnLookCancelled;
     public event Action OnJumpStarted;
     public event Action OnJumpCancelled;
+    public event Action OnRetrieveStart;
+    public event Action OnRetrieveEnd;
 
     [SerializeField] Camera mainCam;
 
@@ -32,6 +34,11 @@ public class PlayerInputManager : MonoBehaviour
 
         if (Instance != this && Instance != null) Destroy(gameObject);
         else Instance = this;
+    }
+    
+    void Start()
+    {
+        mainCam = Camera.main;
     }
 
     public void HandleMovement(InputAction.CallbackContext ctx)
@@ -63,7 +70,7 @@ public class PlayerInputManager : MonoBehaviour
     public void HandleThrow(InputAction.CallbackContext ctx)
     {
         if (ctx.performed)
-            OnThrow?.Invoke();
+            OnThrow?.Invoke(aimDirection);
         else if (ctx.canceled)
             OnThrowCancelled?.Invoke(aimDirection);
     }
@@ -111,5 +118,14 @@ public class PlayerInputManager : MonoBehaviour
         {
             OnJumpCancelled?.Invoke();
         }
+    }
+
+    public void HandleRetrieve(InputAction.CallbackContext ctx)
+    {
+        if(ctx.performed)
+            OnRetrieveStart?.Invoke();
+        
+        if(ctx.canceled)
+            OnRetrieveEnd?.Invoke();
     }
 }

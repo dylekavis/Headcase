@@ -7,6 +7,12 @@ public class CameraFollow : MonoBehaviour
 
     [SerializeField] float moveSpeed;
 
+    void Start()
+    {
+        playerTransform = SpawnPlayerInRoom.Instance.GetPlayer().transform;
+        headTransform = SpawnPlayerInRoom.Instance.GetHead().transform;
+    }
+
     void LateUpdate()
     {
         Vector3 midpoint = (playerTransform.position + headTransform.position) / 2f;

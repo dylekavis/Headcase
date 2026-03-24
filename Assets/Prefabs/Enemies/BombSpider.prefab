@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 520740506695180991}
   m_Layer: 0
   m_Name: PitDetection
-  m_TagString: Untagged
+  m_TagString: PickUpEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5415,6 +5415,7 @@ MonoBehaviour:
   anim: {fileID: 1093120265044413171}
   controller: {fileID: 3786270899395817451}
   pitDetection: {fileID: 7270393350703836171}
+  hm: {fileID: 0}
 --- !u!114 &3786270899395817451
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5440,6 +5441,7 @@ MonoBehaviour:
   throwable: {fileID: -4468426721296374155}
   audioSource: {fileID: 7120325693053453223}
   explosionClip: {fileID: 8300000, guid: 39ac2dd122c2e0441b04311ac58d8605, type: 3}
+  hm: {fileID: 7969422369685508019}
 --- !u!114 &5655989556711061527
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5582,7 +5584,7 @@ GameObject:
   - component: {fileID: 5570311539047966090}
   m_Layer: 0
   m_Name: hitbox
-  m_TagString: Untagged
+  m_TagString: PickUpEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

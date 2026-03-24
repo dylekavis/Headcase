@@ -17,10 +17,13 @@ public class PlayerThrowing : MonoBehaviour
     [SerializeField] float collisionOffsetTime = 0.2f;
     [SerializeField] float maxChargeTime = 3f;
     [SerializeField] float throwForce = 10f;
+    [SerializeField] float moveSpeed = 5f;
     float currentCharge;
+    bool isRetrieving;
 
     [Header("Do you have your head?")]
     [SerializeField] bool hasHead = true;
+    [SerializeField] float headRespawnTime = 0.75f;
 
     [Header("Powerbar")]
     [SerializeField] Image powerbar;
@@ -35,6 +38,32 @@ public class PlayerThrowing : MonoBehaviour
 
             if (hc != null)
                 hc.OnHeadCollect += CollectObject;
+
+            HeadController controller = headObject.GetComponent<HeadController>();
+
+            if (controller != null)
+                controller.OnPitFall += RespawnHead;
+        }
+    }
+
+    void Update()
+    {
+        if (isRetrieving && headObject != null)
+        {
+            headObject.transform.position = Vector2.MoveTowards(
+                headObject.transform.position, 
+                transform.position, 
+                moveSpeed * Time.deltaTime
+            );
+
+            if (Vector2.Distance(headObject.transform.position, transform.position) < 0.2f)
+            {
+                isRetrieving = false;
+                headObject.transform.SetParent(transform);
+                headObject.SetActive(false);
+                hasHead = true;
+                OnHeadPickup?.Invoke();
+            }
         }
     }
 
@@ -42,20 +71,26 @@ public class PlayerThrowing : MonoBehaviour
     {
         PlayerInputManager.Instance.OnThrow += StartCharge;
         PlayerInputManager.Instance.OnThrowCancelled += CancelThrow;
+
+        PlayerInputManager.Instance.OnRetrieveStart += HandleRetrieve;
+        PlayerInputManager.Instance.OnRetrieveEnd += CancelRetrieve;
     }
 
     void OnDisable()
     {
         PlayerInputManager.Instance.OnThrow -= StartCharge;
         PlayerInputManager.Instance.OnThrowCancelled -= CancelThrow;
+
+        PlayerInputManager.Instance.OnRetrieveStart -= HandleRetrieve;
+        PlayerInputManager.Instance.OnRetrieveEnd -= CancelRetrieve;
     }
 
-    void StartCharge()
+    void StartCharge(Vector2 aimDirection)
     {
         if (throwCharge != null) return;
         if (!hasHead) return;
 
-        throwCharge = StartCoroutine(ChargeThrow());
+        throwCharge = StartCoroutine(ChargeThrow(aimDirection));
     }
 
     void CancelThrow(Vector2 aimDirection)
@@ -70,7 +105,7 @@ public class PlayerThrowing : MonoBehaviour
         }
     }
 
-    IEnumerator ChargeThrow()
+    IEnumerator ChargeThrow(Vector2 aimDirection)
     {
         currentCharge = 0f;
         powerbar.fillAmount = 0;
@@ -79,13 +114,12 @@ public class PlayerThrowing : MonoBehaviour
         while (currentCharge < maxChargeTime)
         {
             currentCharge += Time.deltaTime;
-            powerbar.fillAmount += 0.01f;
+            powerbar.fillAmount += 0.005f;
             yield return null;
         }
 
         currentCharge = maxChargeTime;
-        powerbar.fillAmount = maxChargeTime;
-        powerbar.enabled = false;
+        powerbar.fillAmount = 1;
     }
 
     void ThrowObject(Vector2 aimDirection)
@@ -160,6 +194,11 @@ public class PlayerThrowing : MonoBehaviour
                 
                 if (hc != null)
                     hc.OnHeadCollect += CollectObject;
+
+                HeadController controller = headObject.GetComponent<HeadController>();
+
+                if (controller != null)
+                    controller.OnPitFall += RespawnHead;
             }
         }
     }
@@ -175,6 +214,37 @@ public class PlayerThrowing : MonoBehaviour
         objCol.enabled = true;
 
         yield break;
+    }
+
+    void RespawnHead()
+    {
+        StartCoroutine(HeadRespawnOffset());
+    }
+
+    IEnumerator HeadRespawnOffset()
+    {
+        yield return new WaitForSeconds(headRespawnTime);
+
+        headObject.transform.position = transform.position;
+        headObject.transform.SetParent(this.transform);
+        headObject.SetActive(false);
+        hasHead = true;
+
+        OnHeadPickup?.Invoke();
+
+    }
+
+    void HandleRetrieve()
+    {
+        if (headObject == null) return;
+        if (hasHead) return;
+
+        isRetrieving = true;
+    }
+
+    void CancelRetrieve()
+    {
+        isRetrieving = false;
     }
 
     public bool HasHead() => hasHead;

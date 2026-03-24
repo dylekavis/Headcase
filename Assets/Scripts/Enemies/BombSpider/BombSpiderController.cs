@@ -34,6 +34,7 @@ public class BombSpiderController : MonoBehaviour
     [SerializeField] ThrowableEnemy throwable;
     [SerializeField] AudioSource audioSource;
     [SerializeField] AudioClip explosionClip;
+    [SerializeField] HealthManager hm;
 
     EnemySpawnPool spawnPool;
 
@@ -56,6 +57,8 @@ public class BombSpiderController : MonoBehaviour
         detectionRadius.OnPlayerUndetected += CancelDetectTarget;
 
         pitDetection.OnPitFall += HandlePitFall;
+
+        hm.OnDamageTaken += HandleDamage;
     }
 
     void OnDisable()
@@ -64,6 +67,8 @@ public class BombSpiderController : MonoBehaviour
         detectionRadius.OnPlayerUndetected -= CancelDetectTarget;
 
         pitDetection.OnPitFall -= HandlePitFall;
+        
+        hm.OnDamageTaken -= HandleDamage;
     }
 
 #region Target Detection
@@ -143,6 +148,37 @@ public class BombSpiderController : MonoBehaviour
 
     void HandlePitFall()
     {
+        gameObject.SetActive(false);
+        spawnPool.ActiveCount -= 1;
+    }
+    
+    void HandleDamage()
+    {
+        StartCoroutine(DamageRoutine());
+    }
+
+    IEnumerator DamageRoutine()
+    {
+        OnAttackStart?.Invoke();
+
+        canAttack = false;
+
+        yield return new WaitForSeconds(attackAnimatonTime);
+
+        OnAttackEnd?.Invoke();
+
+        ps.gameObject.SetActive(true);
+        ps.Play();
+
+        audioSource.pitch = UnityEngine.Random.Range(0.9f, 1.1f);
+        audioSource.PlayOneShot(explosionClip);
+        
+        yield return new WaitForSeconds(0.2f);
+
+        hitbox.enabled = true;
+
+        yield return new WaitForSeconds(0.5f);
+
         gameObject.SetActive(false);
         spawnPool.ActiveCount -= 1;
     }

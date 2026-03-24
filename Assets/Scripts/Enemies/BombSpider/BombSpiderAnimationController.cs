@@ -6,6 +6,7 @@ public class BombSpiderAnimationController : MonoBehaviour
 
     [SerializeField] BombSpiderController controller;
     [SerializeField] EnemyPitDetection pitDetection;
+    [SerializeField] HealthManager hm;
 
     void Start()
     {
@@ -21,7 +22,7 @@ public class BombSpiderAnimationController : MonoBehaviour
         controller.OnAttackEnd += CancelAttack;
 
         pitDetection.OnPitDetected += HandlePit;
-        pitDetection.OnPitFall -= EndPitAnim;      
+        pitDetection.OnPitFall -= EndPitAnim;   
     }
 
     void OnDisable()

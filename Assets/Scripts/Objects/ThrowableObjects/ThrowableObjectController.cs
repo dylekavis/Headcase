@@ -1,6 +1,5 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.XR;
 
 public class ThrowableObjectController : MonoBehaviour
 {

@@ -9,6 +9,11 @@ public class MusicManager : MonoBehaviour
 
     [SerializeField] float timeBetweenSongs = 15f;
 
+    void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
+
     void Start()
     {
         StartCoroutine(MusicLoop());

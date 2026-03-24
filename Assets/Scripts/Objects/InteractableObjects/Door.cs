@@ -11,6 +11,7 @@ public enum DoorDirection
 public class Door : MonoBehaviour
 {
     [SerializeField] DoorDirection doorDirection;
+    [SerializeField] Collider2D doorCollider;
     [SerializeField] bool isOpen;
     [SerializeField] Animator anim;
 
@@ -24,6 +25,7 @@ public class Door : MonoBehaviour
     public void SetOpenState(bool open)
     {
         isOpen = open;
+        doorCollider.enabled = open;
     }
 
     void DoorState()
@@ -59,6 +61,14 @@ public class Door : MonoBehaviour
         else
         {
             anim.SetBool("isOpen", false);
+        }
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            LoadScene.Instance.LoadNextScene();
         }
     }
 }

@@ -40,6 +40,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "Retrieve",
+                    "type": "Button",
+                    "id": "d7ab3331-f169-4b15-9c22-98ace23bdb3b",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -100,33 +109,11 @@
                 },
                 {
                     "name": "",
-                    "id": "4df3d8bc-b81b-4508-84be-26c113268140",
-                    "path": "<Gamepad>/leftStick",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Gamepad",
-                    "action": "Movement",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "4b08144e-f5b4-4bc4-b375-0824eaaba9f8",
                     "path": "<Keyboard>/shift",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Mouse and Keyboard",
-                    "action": "Sprint",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "d5913e6f-3e07-41e7-bb5b-7d008d243d32",
-                    "path": "<Gamepad>/buttonWest",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Gamepad",
                     "action": "Sprint",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -144,17 +131,6 @@
                 },
                 {
                     "name": "",
-                    "id": "a7e8bc30-5c05-4fe2-a4a0-c421970ddf9a",
-                    "path": "<Gamepad>/rightTrigger",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Gamepad",
-                    "action": "Throw",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "f41fecc3-ddb2-4643-bab7-174e073fb6f9",
                     "path": "<Mouse>/position",
                     "interactions": "",
@@ -166,12 +142,12 @@
                 },
                 {
                     "name": "",
-                    "id": "4fa5a342-46e8-42a0-a0b9-13baeb72184d",
-                    "path": "<Gamepad>/rightStick",
+                    "id": "f4809fe3-1886-4883-8106-edfd5adc6406",
+                    "path": "<Mouse>/rightButton",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Gamepad",
-                    "action": "LookDirection",
+                    "groups": "",
+                    "action": "Retrieve",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
