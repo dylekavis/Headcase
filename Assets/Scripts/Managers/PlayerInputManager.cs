@@ -35,10 +35,10 @@ public class PlayerInputManager : MonoBehaviour
         if (Instance != this && Instance != null) Destroy(gameObject);
         else Instance = this;
     }
-    
-    void Start()
+
+    public void RegisterCamera(Camera camera)
     {
-        mainCam = Camera.main;
+        mainCam = camera;
     }
 
     public void HandleMovement(InputAction.CallbackContext ctx)

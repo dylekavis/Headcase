@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class HealthManager : MonoBehaviour, IHealth
 {
-    public event Action OnDamageTaken;
+    public event Action<int> OnDamageTaken;
     
     [SerializeField] int maxHealthAmount = 20;
     [SerializeField] int currentHealth;
@@ -20,7 +20,7 @@ public class HealthManager : MonoBehaviour, IHealth
         if (currentHealth <= 0)
             HandleDeath();
 
-        OnDamageTaken?.Invoke();
+        OnDamageTaken?.Invoke(damageAmount);
 
         HitStopManager.Instance.Stop(0.1f);
     }

@@ -24,6 +24,18 @@ public class PlayerAnimationController : MonoBehaviour
         hm = GetComponent<HealthManager>();
     }
 
+    void Update()
+    {
+        if (fullBodyAnim.gameObject.activeInHierarchy)
+        {
+            headlessBodyAnim.gameObject.SetActive(false);
+        }
+        else
+        {
+            headlessBodyAnim.gameObject.SetActive(true);
+        }
+    }
+
     void OnEnable()
     {
         PlayerInputManager.Instance.OnMove += HandleMovement;
@@ -150,7 +162,7 @@ public class PlayerAnimationController : MonoBehaviour
         }
     }
 
-    public void HandleDamage()
+    public void HandleDamage(int damageAmount)
     {
         StartCoroutine(RespawnRoutine());
     }

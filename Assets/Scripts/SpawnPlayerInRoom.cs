@@ -13,8 +13,10 @@ public class SpawnPlayerInRoom : MonoBehaviour
         else Instance = this;
     }
 
-    void Start()
+    void OnEnable()
     {
+        playerObject = GameObject.FindGameObjectWithTag("Player");
+
         if (playerObject != null)
         {
             playerObject.transform.position = this.transform.position;

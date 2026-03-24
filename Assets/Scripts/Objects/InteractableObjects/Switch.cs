@@ -16,7 +16,7 @@ public class Switch : MonoBehaviour
     [SerializeField] Light2D lighting;
     [SerializeField] SwitchState state;
     [SerializeField] Animator anim;
-
+ 
     void Start()
     {
         lighting.enabled = false;

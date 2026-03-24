@@ -218,6 +218,9 @@ public class PlayerThrowing : MonoBehaviour
 
     void RespawnHead()
     {
+        HealthManager hm = GetComponent<HealthManager>();
+        hm.Damage(5);
+        
         StartCoroutine(HeadRespawnOffset());
     }
 

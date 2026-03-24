@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using UnityEngine;
 
 public class PlayerPitDetection : MonoBehaviour
@@ -10,11 +9,11 @@ public class PlayerPitDetection : MonoBehaviour
     public event Action<Vector2> OnRespawnCreated;
 
     Vector2 respawnPoint;
-    PlayerMovement pm;
+    [SerializeField] PlayerMovement pm;
 
     void Start()
     {
-        pm = GetComponent<PlayerMovement>();
+        pm = GetComponentInParent<PlayerMovement>();
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -26,6 +25,7 @@ public class PlayerPitDetection : MonoBehaviour
             Vector2 moveDir = pm.GetMoveInput.normalized;
 
             respawnPoint = (Vector2)transform.position - moveDir * 1.5f;
+
             OnPitDetected?.Invoke(respawnPoint);
         }
     }

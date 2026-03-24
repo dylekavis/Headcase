@@ -152,7 +152,7 @@ public class BombSpiderController : MonoBehaviour
         spawnPool.ActiveCount -= 1;
     }
     
-    void HandleDamage()
+    void HandleDamage(int damageAmount)
     {
         StartCoroutine(DamageRoutine());
     }

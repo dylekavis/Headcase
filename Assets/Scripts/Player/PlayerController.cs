@@ -13,26 +13,26 @@ public class PlayerController : MonoBehaviour
         hm = GetComponent<HealthManager>();
     }
 
+    void Start()
+    {
+        SpawnPlayerInRoom.Instance.RegisterPlayer(this.gameObject);
+    }
+
     void OnEnable()
     {
         pitDetection.OnPitDetected += HandlePit;
-        pitDetection.OnRespawnCreated += HandleRespawn;
     }
 
     void OnDisable()
     {
         pitDetection.OnPitDetected -= HandlePit;
-        pitDetection.OnRespawnCreated -= HandleRespawn;
     }
 
-    void HandlePit(Vector2 pit)
+    void HandlePit(Vector2 spawnPoint)
     {
         hm.Damage(10);
         Debug.Log($"{name} fell in the pit, took 10 points of damage. {hm.GetHealth()} remains.");
-    }
 
-    void HandleRespawn(Vector2 spawnPoint)
-    {
         transform.position = spawnPoint;
     }
 }
