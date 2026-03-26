@@ -345,7 +345,7 @@ TextureImporter:
       name: Tilemap_11
       rect:
         serializedVersion: 2
-        x: 160
+        x: 32
         y: 96
         width: 32
         height: 32
@@ -367,7 +367,7 @@ TextureImporter:
       name: Tilemap_12
       rect:
         serializedVersion: 2
-        x: 192
+        x: 160
         y: 96
         width: 32
         height: 32
@@ -389,8 +389,8 @@ TextureImporter:
       name: Tilemap_13
       rect:
         serializedVersion: 2
-        x: 160
-        y: 64
+        x: 192
+        y: 96
         width: 32
         height: 32
       alignment: 0
@@ -411,7 +411,7 @@ TextureImporter:
       name: Tilemap_14
       rect:
         serializedVersion: 2
-        x: 192
+        x: 32
         y: 64
         width: 32
         height: 32
@@ -425,6 +425,72 @@ TextureImporter:
       bones: []
       spriteID: 061782a14ebe37c4fa31a8ec82228fdc
       internalID: 1844477303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilemap_15
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4e9e189011b96a419bc9748db46be9f
+      internalID: -185591783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilemap_16
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9502d9f13ad847f4da26d0f7ff420cf9
+      internalID: 458559640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilemap_17
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95b4927bd6bca034abe4f953cb630f13
+      internalID: -449917194
       vertices: []
       indices: 
       edges: []
@@ -444,6 +510,8 @@ TextureImporter:
       entries:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":32.0,"y":32.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+      - key: SpriteEditor.SliceOnImport
+        value: False
     nameFileIdTable:
       Tilemap_0: -7708920532220806285
       Tilemap_1: -217546545
@@ -452,6 +520,9 @@ TextureImporter:
       Tilemap_12: -834077118
       Tilemap_13: -1685019297
       Tilemap_14: 1844477303
+      Tilemap_15: -185591783
+      Tilemap_16: 458559640
+      Tilemap_17: -449917194
       Tilemap_2: -1512052190
       Tilemap_3: -1117316847
       Tilemap_4: 282228853

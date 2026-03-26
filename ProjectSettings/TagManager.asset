@@ -11,6 +11,7 @@ TagManager:
   - PickUpEnemy
   - NonPickUpEnemy
   - DetectionRadius
+  - Platform
   layers:
   - Default
   - TransparentFX
@@ -18,9 +19,9 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
+  - Pit
+  - Walkable
+  - Platform
   - 
   - 
   - 
