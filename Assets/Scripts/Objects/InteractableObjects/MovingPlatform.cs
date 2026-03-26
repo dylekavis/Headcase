@@ -54,12 +54,10 @@ public class MovingPlatform : MonoBehaviour
     void HandleActive()
     {
         isActive = true;
-        rb.bodyType = RigidbodyType2D.Dynamic;
     }
 
     void CancelActive()
     {
         isActive = false;
-        rb.bodyType = RigidbodyType2D.Kinematic;
     }
 }
