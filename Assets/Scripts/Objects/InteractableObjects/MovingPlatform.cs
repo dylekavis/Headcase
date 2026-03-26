@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class MovingPlatform : MonoBehaviour
 {
@@ -10,16 +11,15 @@ public class MovingPlatform : MonoBehaviour
     Transform currentTarget;
 
     Rigidbody2D rb;
-
+    PlayerController currentPlayer;
     public bool isActive;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         rb.bodyType = RigidbodyType2D.Kinematic;
-        currentTarget = endPoint;
-
         rb.sleepMode = RigidbodySleepMode2D.NeverSleep;
+        currentTarget = endPoint;
     }
 
     void OnEnable()
@@ -42,22 +42,41 @@ public class MovingPlatform : MonoBehaviour
             return;
         }
 
-        Vector2 moveTo = Vector2.MoveTowards(transform.position, currentTarget.position, moveSpeed * Time.deltaTime);
+        Vector2 moveTo = Vector2.MoveTowards(rb.position, currentTarget.position, moveSpeed * Time.fixedDeltaTime);
         rb.MovePosition(moveTo);
 
-        if (Vector2.Distance(transform.position, currentTarget.position) < 0.05f)
-        {
+        if (Vector2.Distance(rb.position, currentTarget.position) < 0.05f)
             currentTarget = currentTarget == endPoint ? startPoint : endPoint;
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
+        {
+            currentPlayer = other.GetComponent<PlayerController>();
+            if (currentPlayer != null)
+                currentPlayer.SetOnPlatform(transform);
         }
     }
 
-    void HandleActive()
+    void OnTriggerExit2D(Collider2D other)
     {
-        isActive = true;
+        if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
+        {
+            if (currentPlayer != null)
+            {
+                StartCoroutine(DelayedExit());
+            }
+        }
     }
 
-    void CancelActive()
+    IEnumerator DelayedExit()
     {
-        isActive = false;
+        yield return new WaitForFixedUpdate();
+        currentPlayer.SetOffPlatform();
+        currentPlayer = null;
     }
+
+    void HandleActive() { isActive = true; }
+    void CancelActive() { isActive = false; }
 }
