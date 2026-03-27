@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5098125383911195092}
   - component: {fileID: 8341670391401177230}
   - component: {fileID: 6207861063174869561}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PitDetection
   m_TagString: Throwable
   m_Icon: {fileID: 0}
@@ -107,7 +107,7 @@ GameObject:
   - component: {fileID: 1714087280433928018}
   - component: {fileID: 2137813172047849297}
   - component: {fileID: 8025798757758414842}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: ThrowableBox
   m_TagString: Throwable
   m_Icon: {fileID: 0}
@@ -268,11 +268,11 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3311733681081658463}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
-  m_UseFullKinematicContacts: 0
+  m_UseFullKinematicContacts: 1
   m_UseAutoMass: 0
-  m_Mass: 10
+  m_Mass: 15
   m_LinearDamping: 5
   m_AngularDamping: 0.05
   m_GravityScale: 0
@@ -284,7 +284,7 @@ Rigidbody2D:
     serializedVersion: 2
     m_Bits: 0
   m_Interpolate: 0
-  m_SleepingMode: 1
+  m_SleepingMode: 0
   m_CollisionDetection: 0
   m_Constraints: 4
 --- !u!58 &1714087280433928018

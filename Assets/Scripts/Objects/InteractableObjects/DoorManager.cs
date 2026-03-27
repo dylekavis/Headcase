@@ -6,6 +6,7 @@ public class DoorManager : MonoBehaviour
 
     [SerializeField] Door[] eligableDoors;
     [SerializeField] SwitchManager switchManager;
+    [SerializeField] PressurePlate plate;
 
     void Awake()
     {
@@ -15,14 +16,32 @@ public class DoorManager : MonoBehaviour
 
     void OnEnable()
     {
-        switchManager.OnAllActivate += OpenEligableDoors;
-        switchManager.OnAllDeactivate += CloseEligableDoors;
+        if (switchManager != null)
+        {
+            switchManager.OnAllActivate += OpenEligableDoors;
+            switchManager.OnAllDeactivate += CloseEligableDoors;
+        }
+        
+        if (plate != null)
+        {
+            plate.OnPlateActivate += OpenEligableDoors;
+            plate.OnPlateDeactivate += CloseEligableDoors;
+        }
     }
 
     void OnDisable()
     {
-        switchManager.OnAllActivate -= OpenEligableDoors;
-        switchManager.OnAllDeactivate -= CloseEligableDoors;
+        if (switchManager != null)
+        {
+            switchManager.OnAllActivate -= OpenEligableDoors;
+            switchManager.OnAllDeactivate -= CloseEligableDoors;
+        }
+        
+        if (plate != null)
+        {
+            plate.OnPlateActivate -= OpenEligableDoors;
+            plate.OnPlateDeactivate -= CloseEligableDoors;
+        }
     }
 
     void OpenEligableDoors()

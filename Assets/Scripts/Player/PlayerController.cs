@@ -59,7 +59,6 @@ public class PlayerController : MonoBehaviour
             Debug.Log("Got Moving Platform");
 
             mp.OnPlatformEnter += EnterPlatform;
-            mp.OnPlatformExit -= ExitPlatform;
         }
     }
 
@@ -70,7 +69,6 @@ public class PlayerController : MonoBehaviour
             MovingPlatform mp = collision.GetComponent<MovingPlatform>();
 
             mp.OnPlatformExit += ExitPlatform;
-            mp.OnPlatformEnter -= EnterPlatform;
         }
     }
 }
