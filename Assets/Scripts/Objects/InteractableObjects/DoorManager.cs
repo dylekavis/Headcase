@@ -5,6 +5,7 @@ public class DoorManager : MonoBehaviour
     public static DoorManager Instance;
 
     [SerializeField] Door[] eligableDoors;
+    [SerializeField] SwitchManager switchManager;
 
     void Awake()
     {
@@ -14,14 +15,14 @@ public class DoorManager : MonoBehaviour
 
     void OnEnable()
     {
-        SwitchManager.Instance.OnAllActivate += OpenEligableDoors;
-        SwitchManager.Instance.OnAllDeactivate += CloseEligableDoors;
+        switchManager.OnAllActivate += OpenEligableDoors;
+        switchManager.OnAllDeactivate += CloseEligableDoors;
     }
 
     void OnDisable()
     {
-        SwitchManager.Instance.OnAllActivate -= OpenEligableDoors;
-        SwitchManager.Instance.OnAllDeactivate -= CloseEligableDoors;
+        switchManager.OnAllActivate -= OpenEligableDoors;
+        switchManager.OnAllDeactivate -= CloseEligableDoors;
     }
 
     void OpenEligableDoors()

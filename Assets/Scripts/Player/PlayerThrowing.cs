@@ -147,7 +147,7 @@ public class PlayerThrowing : MonoBehaviour
         Vector2 spawnOffset = aimDirection.normalized * 0.5f;
         Vector2 spawnPos = (Vector2)transform.position + spawnOffset;
 
-        objectToThrow.transform.parent = null;
+        objectToThrow.transform.SetParent(null);
 
         Rigidbody2D objRb = objectToThrow.GetComponent<Rigidbody2D>();
         objectToThrow.transform.position = spawnPos;

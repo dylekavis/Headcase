@@ -16,6 +16,7 @@ public class Switch : MonoBehaviour
     [SerializeField] Light2D lighting;
     [SerializeField] SwitchState state;
     [SerializeField] Animator anim;
+    [SerializeField] SwitchManager switchManager;
  
     void Start()
     {
@@ -55,7 +56,7 @@ public class Switch : MonoBehaviour
         if (state == SwitchState.Base)
         {
             SetState(SwitchState.Sentry);
-            SwitchManager.Instance.RegisterSentry();
+            switchManager.RegisterSentry();
         }
     }
 

@@ -8,7 +8,7 @@ public class ObjectPitDetector : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Pit"))
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Pit"))
         {
             OnPitDetected?.Invoke(true);
         }
@@ -16,7 +16,7 @@ public class ObjectPitDetector : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Pit"))
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Pit"))
         {
             OnPitUndetected?.Invoke(false);
         }

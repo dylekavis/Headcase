@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class SwitchManager : MonoBehaviour
 {
-    public static SwitchManager Instance;
-
     public event Action OnAllActivate;
     public event Action OnAllDeactivate;
 
@@ -22,12 +20,6 @@ public class SwitchManager : MonoBehaviour
     [SerializeField] float elapsed;
  
     int sentryCount;
-
-    void Awake()
-    {
-        if (Instance != this && Instance != null) Destroy(gameObject);
-        else Instance = this;
-    }
 
     public void RegisterSentry()
     {

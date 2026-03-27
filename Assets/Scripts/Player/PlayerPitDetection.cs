@@ -26,9 +26,16 @@ public class PlayerPitDetection : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (!gameObject.activeInHierarchy) return;
+
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Platform"))
+        {
+            gameObject.SetActive(false);
+        }
         
         if (collision.gameObject.layer == LayerMask.NameToLayer("Pit"))
         {
+            if (pc.isOnPlatform) return;
+
             Debug.Log($"{name} detected the pit");
 
             Vector2 moveDir = pm.GetMoveInput.normalized;

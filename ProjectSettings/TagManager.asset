@@ -16,14 +16,14 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
   - Pit
   - Walkable
   - Platform
-  - 
-  - 
+  - PitDetection
+  - Head
   - 
   - 
   - 

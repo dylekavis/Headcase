@@ -37,19 +37,40 @@ public class PlayerController : MonoBehaviour
         transform.position = spawnPoint;
     }
 
-    public void SetOnPlatform(Transform platformTransform)
+    void EnterPlatform(Transform platform)
     {
-        if (isOnPlatform) return;
         isOnPlatform = true;
+        transform.SetParent(platform);
         pitDetection.gameObject.SetActive(false);
-        transform.SetParent(platformTransform);
     }
 
-    public void SetOffPlatform()
+    void ExitPlatform()
     {
-        if (!isOnPlatform) return;
         isOnPlatform = false;
         transform.SetParent(null);
         pitDetection.gameObject.SetActive(true);
+    }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Platform"))
+        {
+            MovingPlatform mp = collision.GetComponent<MovingPlatform>();
+            Debug.Log("Got Moving Platform");
+
+            mp.OnPlatformEnter += EnterPlatform;
+            mp.OnPlatformExit -= ExitPlatform;
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Platform"))
+        {
+            MovingPlatform mp = collision.GetComponent<MovingPlatform>();
+
+            mp.OnPlatformExit += ExitPlatform;
+            mp.OnPlatformEnter -= EnterPlatform;
+        }
     }
 }
