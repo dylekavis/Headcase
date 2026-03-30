@@ -22,7 +22,7 @@ public class BombSpiderAnimationController : MonoBehaviour
         controller.OnAttackEnd += CancelAttack;
 
         pitDetection.OnPitDetected += HandlePit;
-        pitDetection.OnPitFall -= EndPitAnim;   
+        pitDetection.OnPitUndetected -= EndPitAnim;   
     }
 
     void OnDisable()
@@ -34,7 +34,7 @@ public class BombSpiderAnimationController : MonoBehaviour
         controller.OnAttackEnd -= CancelAttack;
 
         pitDetection.OnPitDetected -= HandlePit;
-        pitDetection.OnPitFall -= EndPitAnim;  
+        pitDetection.OnPitUndetected -= EndPitAnim;  
     }
 
     void HandleMove(Transform target)

@@ -4,7 +4,10 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] PlayerPitDetection pitDetection;
+    [SerializeField] Canvas menuCanvas;
     HealthManager hm;
+
+    int maxHealth;
 
     Vector2 respawnPoint;
     public bool isOnPlatform;
@@ -13,6 +16,7 @@ public class PlayerController : MonoBehaviour
     {
         pitDetection = GetComponentInChildren<PlayerPitDetection>();
         hm = GetComponent<HealthManager>();
+        maxHealth = hm.GetHealth();
     }
 
     void Start()
@@ -23,11 +27,35 @@ public class PlayerController : MonoBehaviour
     void OnEnable() 
     {
         pitDetection.OnPitDetected += HandlePit;
+        PlayerInputManager.Instance.SettingsMenuToggle += ToggleSettings;
     }
 
     void OnDisable() 
     { 
         pitDetection.OnPitDetected -= HandlePit;
+        PlayerInputManager.Instance.SettingsMenuToggle -= ToggleSettings;
+    }
+
+    void Update()
+    {
+        if (hm.GetHealth() <= 0)
+        {
+            menuCanvas.enabled = true;
+        }
+    }
+
+    void ToggleSettings(bool open)
+    {
+        if (open)
+        {
+            Time.timeScale = 0;
+            menuCanvas.enabled = true;
+        }
+        else
+        {
+            Time.timeScale = 1;
+            menuCanvas.enabled = false;
+        }
     }
 
     void HandlePit(Vector2 spawnPoint)

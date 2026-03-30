@@ -40,6 +40,8 @@ public class BombSpiderController : MonoBehaviour
 
     bool isThrown => throwable.GetState() == IThrowable.State.Thrown;
 
+    public bool isOnPlatform;
+
     //Unsearialized references
     GameObject targetToFollow;
     bool canAttack = true;
@@ -56,7 +58,7 @@ public class BombSpiderController : MonoBehaviour
         detectionRadius.OnPlayerDetected += HandleDetectTarget;
         detectionRadius.OnPlayerUndetected += CancelDetectTarget;
 
-        pitDetection.OnPitFall += HandlePitFall;
+        pitDetection.OnPitDetected += HandlePitFall;
 
         hm.OnDamageTaken += HandleDamage;
     }
@@ -66,7 +68,7 @@ public class BombSpiderController : MonoBehaviour
         detectionRadius.OnPlayerDetected -= HandleDetectTarget;
         detectionRadius.OnPlayerUndetected -= CancelDetectTarget;
 
-        pitDetection.OnPitFall -= HandlePitFall;
+        pitDetection.OnPitDetected -= HandlePitFall;
         
         hm.OnDamageTaken -= HandleDamage;
     }
@@ -141,7 +143,9 @@ public class BombSpiderController : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
 
         gameObject.SetActive(false);
-        spawnPool.ActiveCount -= 1;
+
+        if (spawnPool != null)
+            spawnPool.ActiveCount -= 1;
     }
 
     #endregion

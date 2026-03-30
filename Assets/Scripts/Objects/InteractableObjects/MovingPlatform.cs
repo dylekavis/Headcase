@@ -1,6 +1,7 @@
 using UnityEngine;
 using System;
 using Unity.VisualScripting;
+using System.Collections.Generic;
 
 public class MovingPlatform : MonoBehaviour
 {
@@ -19,9 +20,8 @@ public class MovingPlatform : MonoBehaviour
     [SerializeField] PressurePlate plate;
 
     Rigidbody2D rb;
-    PlayerController pc;
+    List<GameObject> objectsOnPlatform = new();
     bool isActive;
-    bool activatedBySwitch;
 
     void Start()
     {
@@ -72,25 +72,19 @@ public class MovingPlatform : MonoBehaviour
         Vector2 moveTo = Vector2.MoveTowards(rb.position, currentTarget.position, moveSpeed * Time.fixedDeltaTime);
         rb.MovePosition(moveTo);
 
-        if (pc != null && pc.isOnPlatform)
-            pc.gameObject.transform.position = Vector2.Lerp(pc.transform.position, rb.position, moveSpeed * Time.deltaTime);
+        if (objectsOnPlatform != null)
+        {
+            foreach (var obj in objectsOnPlatform)
+            {
+                obj.transform.position = Vector2.Lerp(obj.transform.position, rb.position, moveSpeed * Time.deltaTime);
+            }
+        }
 
         if (Vector2.Distance(rb.position, currentTarget.position) < 0.1f)
         {
-            if (currentTarget == startPoint)
-            {
-                currentTarget = endPoint;
-            }
-            else
-            {
-                currentTarget = startPoint;
-            }
+            currentTarget = (currentTarget == startPoint) ? endPoint : startPoint;
 
-            if (activatedBySwitch)
-            {
-                isActive = false;
-                activatedBySwitch = false;
-            }
+            isActive = false;
         }
     }
 
@@ -100,8 +94,24 @@ public class MovingPlatform : MonoBehaviour
         {
             OnPlatformEnter?.Invoke(this.transform);
 
-            pc = collision.GetComponent<PlayerController>();
+            PlayerController pc = collision.GetComponent<PlayerController>();
             pc.isOnPlatform = true;
+
+            objectsOnPlatform.Add(collision.gameObject);
+        }
+
+        if (collision.gameObject.layer == LayerMask.NameToLayer("ThrowableObject"))
+        {
+            ThrowableObjectController toc = collision.GetComponent<ThrowableObjectController>();
+            BombSpiderController bc = collision.GetComponent<BombSpiderController>();
+            
+            if (toc != null)
+                toc.isOnPlatform = true;
+
+            if (bc != null)
+                bc.isOnPlatform = true;
+
+            objectsOnPlatform.Add(collision.gameObject);
         }
     }
 
@@ -110,13 +120,28 @@ public class MovingPlatform : MonoBehaviour
         if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
             OnPlatformExit?.Invoke();
+
+            objectsOnPlatform.Remove(collision.gameObject);
+        }
+
+        if (collision.gameObject.layer == LayerMask.NameToLayer("ThrowableObject"))
+        {
+            ThrowableObjectController toc = collision.GetComponent<ThrowableObjectController>();
+            BombSpiderController bc = collision.GetComponent<BombSpiderController>();
+
+           if (toc != null)
+                toc.isOnPlatform = false;
+
+            if (bc != null)
+                bc.isOnPlatform = false;
+
+            objectsOnPlatform.Remove(collision.gameObject);
         }
     }
 
     void HandleActive() 
     { 
-        isActive = true; 
-        if (plate == null) activatedBySwitch = true;
+        isActive = true;
     }
     void CancelActive() 
     { 

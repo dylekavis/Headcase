@@ -29,8 +29,6 @@ public class PressurePlate : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("DetectionRadius")) return;
-        if (collision.gameObject.layer != LayerMask.NameToLayer("ThrowableObject") && 
-        collision.gameObject.layer != LayerMask.NameToLayer("Player")) return;
 
         Debug.Log($"{collision.gameObject.name} stepped on this plate {name}");
 
@@ -44,8 +42,6 @@ public class PressurePlate : MonoBehaviour
     void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("DetectionRadius")) return;
-        if (collision.gameObject.layer != LayerMask.NameToLayer("ThrowableObject") && 
-        collision.gameObject.layer != LayerMask.NameToLayer("Player")) return;
 
         Debug.Log($"{collision.gameObject.name} stepped off this plate {name}");
 

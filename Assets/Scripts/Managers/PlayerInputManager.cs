@@ -20,6 +20,7 @@ public class PlayerInputManager : MonoBehaviour
     public event Action OnJumpCancelled;
     public event Action OnRetrieveStart;
     public event Action OnRetrieveEnd;
+    public event Action<bool> SettingsMenuToggle;
 
     [SerializeField] Camera mainCam;
 
@@ -27,6 +28,7 @@ public class PlayerInputManager : MonoBehaviour
     [SerializeField] Vector2 aimDirection;
 
     bool isMoving;
+    bool openSettings;
 
     void Awake()
     {
@@ -39,6 +41,12 @@ public class PlayerInputManager : MonoBehaviour
     public void RegisterCamera(Camera camera)
     {
         mainCam = camera;
+    }
+
+    public void OpenSettings(InputAction.CallbackContext ctx)
+    {
+        openSettings = openSettings ? false : true; 
+        SettingsMenuToggle?.Invoke(openSettings);
     }
 
     public void HandleMovement(InputAction.CallbackContext ctx)

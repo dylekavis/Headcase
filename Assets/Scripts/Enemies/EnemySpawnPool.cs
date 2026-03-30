@@ -9,7 +9,6 @@ public class EnemySpawnPool : MonoBehaviour
     [SerializeField] int numToActivate;
 
     [SerializeField] float spawnTime;
-    [SerializeField] float spawnRadius;
 
     public float ActiveCount;
 
@@ -56,8 +55,7 @@ public class EnemySpawnPool : MonoBehaviour
                 
                 if (spawn.gameObject.activeInHierarchy) continue;
                 
-                Vector2 randomPoint = Random.insideUnitCircle * spawnRadius;
-                spawn.transform.position = randomPoint;
+                spawn.transform.position = transform.position;
                 spawn.SetActive(true);
                 ActiveCount++;
             }

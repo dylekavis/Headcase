@@ -5,18 +5,31 @@ using UnityEngine;
 public class EnemyPitDetection : MonoBehaviour
 {
     public event Action OnPitDetected;
-    public event Action OnPitFall;
+    public event Action OnPitUndetected;
 
     [SerializeField] float pitfallAnimTime;
+    [SerializeField] BombSpiderController bombSpiderController;
+
+    bool isOverPit;
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Pit"))
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Pit"))
         {
-            OnPitDetected?.Invoke();
             Debug.Log($"{name} detected the pit");
+            isOverPit = true;
 
             StartCoroutine(PitFall());
+            return;
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Pit"))
+        {
+            isOverPit = false;
+            OnPitUndetected?.Invoke();
         }
     }
 
@@ -24,6 +37,8 @@ public class EnemyPitDetection : MonoBehaviour
     {
         yield return new WaitForSeconds(pitfallAnimTime);
 
-        OnPitFall?.Invoke();
+        if (bombSpiderController.isOnPlatform) yield break;
+
+        OnPitDetected?.Invoke();
     }
 }

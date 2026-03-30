@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 8451472026065392518}
   - component: {fileID: 7270393350703836171}
   - component: {fileID: 520740506695180991}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PitDetection
-  m_TagString: PickUpEnemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pitfallAnimTime: 0.2
+  bombSpiderController: {fileID: 3786270899395817451}
 --- !u!58 &520740506695180991
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -92,7 +93,7 @@ GameObject:
   m_Component:
   - component: {fileID: 284260002678845736}
   - component: {fileID: 2157372768336369106}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Light 2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177,7 +178,7 @@ GameObject:
   - component: {fileID: 3800170505576542390}
   - component: {fileID: 2268769394993813274}
   - component: {fileID: 6546764622482655121}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5010,7 +5011,7 @@ GameObject:
   - component: {fileID: 3539477697125175874}
   - component: {fileID: 1706532213928230222}
   - component: {fileID: 1093120265044413171}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: BombSpiderSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5119,7 +5120,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1092407775146780986}
   - component: {fileID: 7120325693053453223}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Audio Source
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5255,7 +5256,7 @@ GameObject:
   - component: {fileID: 5655989556711061527}
   - component: {fileID: 7969422369685508019}
   - component: {fileID: -4468426721296374155}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: BombSpider
   m_TagString: PickUpEnemy
   m_Icon: {fileID: 0}
@@ -5415,7 +5416,7 @@ MonoBehaviour:
   anim: {fileID: 1093120265044413171}
   controller: {fileID: 3786270899395817451}
   pitDetection: {fileID: 7270393350703836171}
-  hm: {fileID: 0}
+  hm: {fileID: 7969422369685508019}
 --- !u!114 &3786270899395817451
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5442,6 +5443,7 @@ MonoBehaviour:
   audioSource: {fileID: 7120325693053453223}
   explosionClip: {fileID: 8300000, guid: 39ac2dd122c2e0441b04311ac58d8605, type: 3}
   hm: {fileID: 7969422369685508019}
+  isOnPlatform: 0
 --- !u!114 &5655989556711061527
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5501,7 +5503,7 @@ GameObject:
   - component: {fileID: 512350701400788427}
   - component: {fileID: 6848818145876039923}
   - component: {fileID: 5380645480699935941}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: DetectionRadius
   m_TagString: DetectionRadius
   m_Icon: {fileID: 0}
@@ -5582,7 +5584,7 @@ GameObject:
   - component: {fileID: 8657424754616657597}
   - component: {fileID: 7560469270035641437}
   - component: {fileID: 5570311539047966090}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: hitbox
   m_TagString: PickUpEnemy
   m_Icon: {fileID: 0}

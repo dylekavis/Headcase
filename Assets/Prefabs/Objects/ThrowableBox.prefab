@@ -45,6 +45,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed2b8990232421c43b9668f6cfa65c10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  coyoteTime: 0.25
+  toc: {fileID: 2137813172047849297}
 --- !u!61 &6207861063174869561
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -338,6 +340,7 @@ MonoBehaviour:
   animator: {fileID: 2386125208990894135}
   pitDetector: {fileID: 8341670391401177230}
   pitThrowOffsetTime: 0.75
+  isOnPlatform: 0
 --- !u!114 &8025798757758414842
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -7,6 +7,8 @@ public class ThrowableObjectController : MonoBehaviour
     [SerializeField] ObjectPitDetector pitDetector;
     [SerializeField] float pitThrowOffsetTime = 0.75f;
 
+    public bool isOnPlatform;
+
     bool isAbovePit;
 
     void OnEnable()
