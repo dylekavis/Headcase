@@ -19,6 +19,8 @@ public class PressurePlate : MonoBehaviour
 
     public bool GetActiveState() => isActive;
 
+    [SerializeField] GameObject objOnPlate;
+
     public void SetState(PlateState state)
     {
         this.state = state;
@@ -32,6 +34,8 @@ public class PressurePlate : MonoBehaviour
 
         Debug.Log($"{collision.gameObject.name} stepped on this plate {name}");
 
+        objOnPlate = collision.gameObject;
+
         if (state == PlateState.Idle)
         {
             SetState(PlateState.Active);
@@ -39,11 +43,18 @@ public class PressurePlate : MonoBehaviour
         }
     }
 
+    void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject != objOnPlate && objOnPlate != null) return;
+    }
+
     void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("DetectionRadius")) return;
 
         Debug.Log($"{collision.gameObject.name} stepped off this plate {name}");
+
+        objOnPlate = null;
 
         if (state == PlateState.Active)
         {

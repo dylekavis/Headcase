@@ -41,6 +41,5 @@ public class HealthManager : MonoBehaviour, IHealth
     void HandleDeath()
     {
         Debug.Log($"{name} has died.");
-        gameObject.SetActive(false);
     }
 }

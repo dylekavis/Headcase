@@ -153,7 +153,8 @@ public class BombSpiderController : MonoBehaviour
     void HandlePitFall()
     {
         gameObject.SetActive(false);
-        spawnPool.ActiveCount -= 1;
+        if (spawnPool != null)
+            spawnPool.ActiveCount -= 1;
     }
     
     void HandleDamage(int damageAmount)

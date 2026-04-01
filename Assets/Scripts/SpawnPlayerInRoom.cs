@@ -4,8 +4,7 @@ public class SpawnPlayerInRoom : MonoBehaviour
 {
     public static SpawnPlayerInRoom Instance;
     [SerializeField] GameObject playerObject;
-
-    GameObject headObject;
+    [SerializeField] GameObject headObject;
 
     void Awake()
     {
@@ -15,16 +14,9 @@ public class SpawnPlayerInRoom : MonoBehaviour
 
     void OnEnable()
     {
-        playerObject = GameObject.FindGameObjectWithTag("Player");
-
-        if (playerObject != null)
-        {
-            playerObject.transform.position = this.transform.position;
-            RegisterPlayer(playerObject);
-
-            HeadController hc = playerObject.GetComponentInChildren<HeadController>(true);
-            if (hc != null) RegisterHead(hc.gameObject);
-        }
+        GameObject player = Instantiate(playerObject, transform.position, Quaternion.identity);
+        GameManager.Instance.Heal(GameManager.Instance.GetMaxHealth() - GameManager.Instance.GetHealth());
+        headObject = player.GetComponentInChildren<HeadController>().gameObject;
     }
 
     public void RegisterPlayer(GameObject player)

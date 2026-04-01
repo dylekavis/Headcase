@@ -9,12 +9,15 @@ public class EnemySpawnPool : MonoBehaviour
     [SerializeField] int numToActivate;
 
     [SerializeField] float spawnTime;
+    [SerializeField] float cameraDistance;
 
     public float ActiveCount;
 
     List<GameObject> spawnedEnemies = new();
 
-    bool isSpawning;
+    public bool isSpawning;
+
+    public bool spawnOffScreen;
 
     void Awake()
     {
@@ -35,6 +38,11 @@ public class EnemySpawnPool : MonoBehaviour
         {
             StartCoroutine(SpawnEnemiesRoutine());
         }
+
+        if (Vector2.Distance(Camera.main.transform.position, transform.position) < cameraDistance && spawnOffScreen)
+        {
+            gameObject.SetActive(false);
+        }
     }
 
     IEnumerator SpawnEnemiesRoutine()
@@ -50,7 +58,7 @@ public class EnemySpawnPool : MonoBehaviour
                 if (ActiveCount >= numToActivate)
                 {
                     isSpawning = false;
-                    break;
+                    yield break;
                 } 
                 
                 if (spawn.gameObject.activeInHierarchy) continue;
@@ -60,5 +68,7 @@ public class EnemySpawnPool : MonoBehaviour
                 ActiveCount++;
             }
         }
+
+        isSpawning = false;
     }
 }

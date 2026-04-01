@@ -2,6 +2,7 @@ using UnityEngine;
 using System;
 using Unity.VisualScripting;
 using System.Collections.Generic;
+using System.Collections;
 
 public class MovingPlatform : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class MovingPlatform : MonoBehaviour
     [SerializeField] Transform startPoint;
     [SerializeField] Transform endPoint;
     [SerializeField] Transform currentTarget;
+    [SerializeField] float waitTime = 2f;
+    [SerializeField] float objSpeedOffset = 1.5f;
 
     [Header("Connections")]
     [SerializeField] SwitchManager switchManager;
@@ -22,6 +25,7 @@ public class MovingPlatform : MonoBehaviour
     Rigidbody2D rb;
     List<GameObject> objectsOnPlatform = new();
     bool isActive;
+    bool switchActive;
 
     void Start()
     {
@@ -35,8 +39,8 @@ public class MovingPlatform : MonoBehaviour
     {
         if (switchManager != null)
         {
-            switchManager.OnAllActivate += HandleActive;
-            switchManager.OnAllDeactivate += CancelActive;
+            switchManager.OnAllActivate += HandleSwitchActive;
+            switchManager.OnAllDeactivate += CancelSwitchActive;
         }
 
         if (plate != null)
@@ -50,8 +54,8 @@ public class MovingPlatform : MonoBehaviour
     {
         if (switchManager != null)
         {
-            switchManager.OnAllActivate -= HandleActive;
-            switchManager.OnAllDeactivate -= CancelActive;
+            switchManager.OnAllActivate -= HandleSwitchActive;
+            switchManager.OnAllDeactivate -= CancelSwitchActive;
         }
 
         if (plate != null)
@@ -76,15 +80,17 @@ public class MovingPlatform : MonoBehaviour
         {
             foreach (var obj in objectsOnPlatform)
             {
-                obj.transform.position = Vector2.Lerp(obj.transform.position, rb.position, moveSpeed * Time.deltaTime);
+                Rigidbody2D objRb = obj.GetComponent<Rigidbody2D>();
+                objRb.MovePosition(Vector2.MoveTowards(obj.transform.position, rb.position, moveSpeed * objSpeedOffset * Time.deltaTime));
             }
         }
 
         if (Vector2.Distance(rb.position, currentTarget.position) < 0.1f)
         {
             currentTarget = (currentTarget == startPoint) ? endPoint : startPoint;
-
             isActive = false;
+            StartCoroutine(PlatformWait());
+            
         }
     }
 
@@ -93,6 +99,7 @@ public class MovingPlatform : MonoBehaviour
         if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
             OnPlatformEnter?.Invoke(this.transform);
+            collision.transform.SetParent(this.transform);
 
             PlayerController pc = collision.GetComponent<PlayerController>();
             pc.isOnPlatform = true;
@@ -104,6 +111,8 @@ public class MovingPlatform : MonoBehaviour
         {
             ThrowableObjectController toc = collision.GetComponent<ThrowableObjectController>();
             BombSpiderController bc = collision.GetComponent<BombSpiderController>();
+
+            collision.transform.SetParent(this.transform);
             
             if (toc != null)
                 toc.isOnPlatform = true;
@@ -121,6 +130,8 @@ public class MovingPlatform : MonoBehaviour
         {
             OnPlatformExit?.Invoke();
 
+            collision.transform.SetParent(null);
+
             objectsOnPlatform.Remove(collision.gameObject);
         }
 
@@ -128,6 +139,8 @@ public class MovingPlatform : MonoBehaviour
         {
             ThrowableObjectController toc = collision.GetComponent<ThrowableObjectController>();
             BombSpiderController bc = collision.GetComponent<BombSpiderController>();
+
+            collision.transform.SetParent(null);
 
            if (toc != null)
                 toc.isOnPlatform = false;
@@ -139,12 +152,36 @@ public class MovingPlatform : MonoBehaviour
         }
     }
 
+    IEnumerator PlatformWait()
+    {
+        yield return new WaitForSeconds(waitTime);
+
+        if (!switchActive)
+        {
+            isActive = false;
+            yield break;
+        }
+
+        isActive = false;
+    }
+
     void HandleActive() 
     { 
         isActive = true;
+        switchActive = true;
     }
     void CancelActive() 
     { 
         isActive = false; 
+    }
+
+    void HandleSwitchActive() 
+    { 
+        switchActive = true;
+        isActive = true;
+    }
+    void CancelSwitchActive() 
+    { 
+        switchActive = false; 
     }
 }

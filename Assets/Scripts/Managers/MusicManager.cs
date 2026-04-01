@@ -3,14 +3,20 @@ using UnityEngine;
 
 public class MusicManager : MonoBehaviour
 {
+    public static MusicManager Instance;
+
     [SerializeField] AudioSource audioSource;
 
     [SerializeField] AudioClip[] songClips;
 
     [SerializeField] float timeBetweenSongs = 15f;
 
-    void Awake()
+    void OnEnable()
     {
+        if (Instance != this && Instance != null) Destroy(gameObject);
+        
+        Instance = this;
+
         DontDestroyOnLoad(gameObject);
     }
 

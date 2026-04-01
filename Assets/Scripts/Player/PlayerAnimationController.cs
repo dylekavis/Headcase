@@ -48,7 +48,7 @@ public class PlayerAnimationController : MonoBehaviour
 
         pitDetection.OnPitDetected += HandlePit;
 
-        hm.OnDamageTaken += HandleDamage;
+        GameManager.Instance.OnDamage += HandleDamage;
         
     }
 
@@ -64,7 +64,7 @@ public class PlayerAnimationController : MonoBehaviour
 
         pitDetection.OnPitDetected -= HandlePit;
 
-        hm.OnDamageTaken -= HandleDamage;
+        GameManager.Instance.OnDamage -= HandleDamage;
     }
 
     void HandleHeadLoss()

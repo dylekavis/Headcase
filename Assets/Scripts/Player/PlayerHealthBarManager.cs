@@ -4,7 +4,6 @@ using UnityEngine.UI;
 
 public class PlayerHealthBarManager : MonoBehaviour
 {
-    [SerializeField] HealthManager hm;
     [SerializeField] Canvas healthBarCanvas;
     [SerializeField] Image healthBar;
     [SerializeField] float disableTime;
@@ -13,12 +12,12 @@ public class PlayerHealthBarManager : MonoBehaviour
     {
         healthBarCanvas.worldCamera = Camera.main;
 
-        hm.OnDamageTaken += HandleDamage;
+        GameManager.Instance.OnDamage += HandleDamage;
     }
 
     void OnDisable()
     {
-        hm.OnDamageTaken -= HandleDamage;
+        GameManager.Instance.OnDamage -= HandleDamage;
     }
 
     void HandleDamage(int damageAmount)

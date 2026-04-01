@@ -5,9 +5,6 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] PlayerPitDetection pitDetection;
     [SerializeField] Canvas menuCanvas;
-    HealthManager hm;
-
-    int maxHealth;
 
     Vector2 respawnPoint;
     public bool isOnPlatform;
@@ -15,8 +12,6 @@ public class PlayerController : MonoBehaviour
     void Awake()
     {
         pitDetection = GetComponentInChildren<PlayerPitDetection>();
-        hm = GetComponent<HealthManager>();
-        maxHealth = hm.GetHealth();
     }
 
     void Start()
@@ -38,9 +33,10 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (hm.GetHealth() <= 0)
+        if (GameManager.Instance.GetHealth() <= 0)
         {
             menuCanvas.enabled = true;
+            gameObject.SetActive(false);
         }
     }
 
@@ -61,7 +57,7 @@ public class PlayerController : MonoBehaviour
     void HandlePit(Vector2 spawnPoint)
     {
         if (isOnPlatform) return;
-        hm.Damage(10);
+        GameManager.Instance.Damage(10);
         transform.position = spawnPoint;
     }
 

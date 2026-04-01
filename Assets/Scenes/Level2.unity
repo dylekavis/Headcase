@@ -179,7 +179,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de073dfb9b1394c4dac2a68af58a9376, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerObject: {fileID: 0}
+  playerObject: {fileID: 2193052043776611933, guid: 97512b21f6bb082489ddac0fea5def1f, type: 3}
+  headObject: {fileID: 0}
 --- !u!4 &207800772 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5272461362857344610, guid: 099066b2d5796e040ae6ffde3aa36381, type: 3}
@@ -349,7 +350,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerTransform: {fileID: 0}
   headTransform: {fileID: 0}
-  moveSpeed: 35
+  moveSpeed: 0.15
 --- !u!1 &466849889
 GameObject:
   m_ObjectHideFlags: 0
@@ -749,7 +750,7 @@ GameObject:
   - component: {fileID: 721881502}
   - component: {fileID: 721881501}
   - component: {fileID: 721881500}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Pit
   m_TagString: Pit
   m_Icon: {fileID: 0}
@@ -4153,6 +4154,10 @@ PrefabInstance:
       value: DoorManager
       objectReference: {fileID: 0}
     - target: {fileID: 8686683154858495478, guid: 3e6504d198e79c9418bc0908218390ab, type: 3}
+      propertyPath: switchManager
+      value: 
+      objectReference: {fileID: 975390411}
+    - target: {fileID: 8686683154858495478, guid: 3e6504d198e79c9418bc0908218390ab, type: 3}
       propertyPath: eligableDoors.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -4176,6 +4181,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1959621255}
     m_Modifications:
+    - target: {fileID: 1533044756561011957, guid: 099066b2d5796e040ae6ffde3aa36381, type: 3}
+      propertyPath: switchManager
+      value: 
+      objectReference: {fileID: 975390411}
     - target: {fileID: 4597464163899498022, guid: 099066b2d5796e040ae6ffde3aa36381, type: 3}
       propertyPath: m_Name
       value: Switch_1
@@ -4300,6 +4309,17 @@ PrefabInstance:
       addedObject: {fileID: 207800772}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: edbcddb1613c2624c8902c86dcaa0bfd, type: 3}
+--- !u!114 &975390411 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6824987355778128751, guid: edbcddb1613c2624c8902c86dcaa0bfd, type: 3}
+  m_PrefabInstance: {fileID: 975390410}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b9bf043eafa7464f81b4643b65555e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1107012775
 GameObject:
   m_ObjectHideFlags: 0
@@ -5663,6 +5683,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1959621255}
     m_Modifications:
+    - target: {fileID: 1533044756561011957, guid: 099066b2d5796e040ae6ffde3aa36381, type: 3}
+      propertyPath: switchManager
+      value: 
+      objectReference: {fileID: 975390411}
     - target: {fileID: 4597464163899498022, guid: 099066b2d5796e040ae6ffde3aa36381, type: 3}
       propertyPath: m_Name
       value: Switch
